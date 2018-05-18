@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         DispatchQueue.once(token: "onec") {
             
         }
-    
+        view.backgroundColor = UIColor.ex.hex(0x666666)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

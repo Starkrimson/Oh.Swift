@@ -1,3 +1,36 @@
+public struct Extensions<Base> {
+    public let base: Base
+    public init(_ base: Base) {
+        self.base = base
+    }
+}
+
+public protocol ExtensionsCompatible {
+    associatedtype CompatibleType
+    static var ex: Extensions<CompatibleType>.Type { get set }
+    var ex: Extensions<CompatibleType> { get set }
+}
+
+extension ExtensionsCompatible {
+    public static var ex: Extensions<Self>.Type {
+        get {
+            return Extensions<Self>.self
+        }
+        set {
+            
+        }
+    }
+    
+    public var ex: Extensions<Self> {
+        get {
+            return Extensions(self)
+        }
+        set {
+            
+        }
+    }
+}
+
 public protocol StateType { }
 public protocol ActionType { }
 public protocol CommandType { }
@@ -25,6 +58,45 @@ public class Store<S: StateType, A: ActionType, C: CommandType> {
     
     func unsubscribe() {
         self.subscriber = nil
+    }
+}
+
+extension UIColor: ExtensionsCompatible { }
+public extension Extensions where Base: UIColor {
+    
+    static var darkBlue: UIColor {
+        return UIColor(red: 18.0/255.0, green: 86.0/255.0, blue: 136.0/255.0, alpha: 1.0)
+    }
+    
+    static var lightBlue: UIColor {
+        return UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
+    }
+    
+    static var dusk: UIColor {
+        return UIColor(red: 255/255.0, green: 181/255.0, blue: 68/255.0, alpha: 1.0)
+    }
+    
+    static var customOrange: UIColor {
+        return UIColor(red: 40/255.0, green: 43/255.0, blue: 53/255.0, alpha: 1.0)
+    }
+    
+    static var random: UIColor {
+        return UIColor.rgb(r: arc4random_uniform(256), g: arc4random_uniform(256), b: arc4random_uniform(256))
+    }
+    
+    static func hex(_ hex: UInt32) -> UIColor {
+        let r = (hex & 0xff0000) >> 16
+        let g = (hex & 0x00ff00) >> 8
+        let b = hex & 0x0000ff
+        return UIColor.rgb(r: r, g: g, b: b)
+    }
+    
+    static func rgb(r: UInt32, g: UInt32, b: UInt32, alpha: CGFloat = 1) -> UIColor {
+        return UIColor(red: CGFloat(r)/255.0, green: CGFloat(g)/255.0, blue: CGFloat(b)/255.0, alpha: alpha)
+    }
+    
+    static func white(_ white: UInt32, alpha: CGFloat = 1) -> UIColor {
+        return UIColor(white: CGFloat(white)/255.0, alpha: alpha)
     }
 }
 
