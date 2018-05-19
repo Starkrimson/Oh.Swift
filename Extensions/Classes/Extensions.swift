@@ -1,6 +1,6 @@
 public struct Extensions<Base> {
-    public let base: Base
-    public init(_ base: Base) {
+    internal let base: Base
+    internal init(_ base: Base) {
         self.base = base
     }
 }
@@ -81,14 +81,14 @@ public extension Extensions where Base: UIColor {
     }
     
     static var random: UIColor {
-        return UIColor.rgb(r: arc4random_uniform(256), g: arc4random_uniform(256), b: arc4random_uniform(256))
+        return UIColor.ex.rgb(r: arc4random_uniform(256), g: arc4random_uniform(256), b: arc4random_uniform(256))
     }
     
     static func hex(_ hex: UInt32) -> UIColor {
         let r = (hex & 0xff0000) >> 16
         let g = (hex & 0x00ff00) >> 8
         let b = hex & 0x0000ff
-        return UIColor.rgb(r: r, g: g, b: b)
+        return UIColor.ex.rgb(r: r, g: g, b: b)
     }
     
     static func rgb(r: UInt32, g: UInt32, b: UInt32, alpha: CGFloat = 1) -> UIColor {
@@ -100,45 +100,8 @@ public extension Extensions where Base: UIColor {
     }
 }
 
-public extension UIColor {
-    
-    static var darkBlue: UIColor {
-        return UIColor(red: 18.0/255.0, green: 86.0/255.0, blue: 136.0/255.0, alpha: 1.0)
-    }
-    
-    static var lightBlue: UIColor {
-        return UIColor(red: 0.0, green: 122.0/255.0, blue: 1.0, alpha: 1.0)
-    }
-    
-    static var dusk: UIColor {
-        return UIColor(red: 255/255.0, green: 181/255.0, blue: 68/255.0, alpha: 1.0)
-    }
-    
-    static var customOrange: UIColor {
-        return UIColor(red: 40/255.0, green: 43/255.0, blue: 53/255.0, alpha: 1.0)
-    }
-    
-    static var random: UIColor {
-        return UIColor.rgb(r: arc4random_uniform(256), g: arc4random_uniform(256), b: arc4random_uniform(256))
-    }
-    
-    static func hex(_ hex: UInt32) -> UIColor {
-        let r = (hex & 0xff0000) >> 16
-        let g = (hex & 0x00ff00) >> 8
-        let b = hex & 0x0000ff
-        return UIColor.rgb(r: r, g: g, b: b)
-    }
-    
-    static func rgb(r: UInt32, g: UInt32, b: UInt32, alpha: CGFloat = 1) -> UIColor {
-        return UIColor(red: CGFloat(r)/255.0, green: CGFloat(g)/255.0, blue: CGFloat(b)/255.0, alpha: alpha)
-    }
-    
-    static func white(_ white: UInt32, alpha: CGFloat = 1) -> UIColor {
-        return UIColor(white: CGFloat(white)/255.0, alpha: alpha)
-    }
-}
-
-public extension UIImage {
+extension UIImage: ExtensionsCompatible { }
+public extension Extensions where Base: UIImage {
     
     func makeCircularImage(size: CGSize, borderWidth width: CGFloat) -> UIImage {
         // make a CGRect with the image's size
@@ -157,7 +120,7 @@ public extension UIImage {
         circle.fill()
         
         // draw the image in the circleRect *AFTER* the context is clipped
-        self.draw(in: circleRect)
+        base.draw(in: circleRect)
         
         // create a border (for white background pictures)
         if width > 0 {
@@ -172,13 +135,13 @@ public extension UIImage {
         // end the image context since we're not in a drawRect:
         UIGraphicsEndImageContext();
         
-        return roundedImage ?? self
+        return roundedImage ?? base
     }
     
     func create(size: CGSize? = nil, backgroundColor: UIColor = UIColor.white) -> UIImage? {
         var size = size
         if size == nil {
-            size = self.size
+            size = base.size
         }
         
         let rect = CGRect(origin: CGPoint(), size: size!)
@@ -188,7 +151,7 @@ public extension UIImage {
         backgroundColor.setFill()
         UIRectFill(rect)
         
-        draw(in: rect)
+        base.draw(in: rect)
         
         let result = UIGraphicsGetImageFromCurrentImageContext()
         
@@ -211,7 +174,8 @@ public extension UIImage {
     }
 }
 
-public extension NSAttributedString {
+extension NSAttributedString: ExtensionsCompatible { }
+public extension Extensions where Base: NSAttributedString {
     
     static func attributedString(string: String?, fontSize size: CGFloat, color: UIColor?) -> NSAttributedString? {
         guard let string = string else { return nil }
@@ -236,25 +200,26 @@ public extension NSAttributedString {
     }
 }
 
-public extension CGPoint {
+extension CGPoint: ExtensionsCompatible { }
+public extension Extensions where Base == CGPoint {
     
     var commitTranslation: UISwipeGestureRecognizerDirection? {
-        let absX = fabs(self.x)
-        let absY = fabs(self.y)
+        let absX = fabs(base.x)
+        let absY = fabs(base.y)
         
         guard absX + absY > 0.0 else {
             return nil
         }
         
         if absX > absY {
-            if self.x < 0 {
+            if base.x < 0 {
                 return .left
             }else{
                 return .right
             }
             
         } else if absY > absX {
-            if self.y < 0 {
+            if base.y < 0 {
                 return .up
             }else{
                 return .down
@@ -264,37 +229,15 @@ public extension CGPoint {
     }
 }
 
-public extension URL {
+extension URL: ExtensionsCompatible { }
+public extension Extensions where Base == URL {
     func copyItem(to dstURL: URL) {
-        try? FileManager.default.copyItem(at: self, to: dstURL)
+        try? FileManager.default.copyItem(at: base, to: dstURL)
     }
 }
 
-public extension String {
-    
-    var isUrlSupported: Bool {
-        return self.hasPrefix("http://") || self.hasPrefix("https://")
-    }
-    
-    func draw(in rect: CGRect, withAttributes: [String: Any]?) {
-        self.draw(in: rect, withAttributes: withAttributes)
-    }
-    
-    func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
-        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
-        
-        return boundingBox.height
-    }
-    
-    func height(margin: CGFloat, fontSize: CGFloat) -> CGFloat {
-        return heightWithConstrainedWidth(width: UIScreen.width - margin, font: UIFont.systemFont(ofSize: fontSize))
-    }
-    
-    func copyItem(toPath dstPath: String) {
-        try? FileManager.default.copyItem(atPath: self, toPath: dstPath)
-    }
-    
+extension String: ExtensionsCompatible {
+   
     /// 路径拼接
     ///
     /// - Parameters:
@@ -305,18 +248,40 @@ public extension String {
     static func /(lhs: String, rhs: String) -> String {
         return lhs + "/" + rhs
     }
+}
+
+public extension Extensions where Base == String {
+    
+    var isUrlSupported: Bool {
+        return base.hasPrefix("http://") || base.hasPrefix("https://")
+    }
+    
+    func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = base.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
+        
+        return boundingBox.height
+    }
+    
+    func height(margin: CGFloat, fontSize: CGFloat) -> CGFloat {
+        return heightWithConstrainedWidth(width: UIScreen.ex.width - margin, font: UIFont.systemFont(ofSize: fontSize))
+    }
+    
+    func copyItem(toPath dstPath: String) {
+        try? FileManager.default.copyItem(atPath: base, toPath: dstPath)
+    }
     
     func localized(_ arguments: CVarArg...) -> String {
-        return String(format: NSLocalizedString(self, comment: "Localizable"), arguments: arguments)
+        return String(format: NSLocalizedString(base, comment: "Localizable"), arguments: arguments)
     }
     
     var encode: String? {
         let characterSet = NSCharacterSet(charactersIn: "!*'\\\\\"();:@&=+$,/?%#[]% ")
-        return self.contains("/") ? self.addingPercentEncoding(withAllowedCharacters: characterSet.inverted) : self
+        return base.contains("/") ? base.addingPercentEncoding(withAllowedCharacters: characterSet.inverted) : base
     }
     
     var decode: String? {
-        return self.removingPercentEncoding
+        return base.removingPercentEncoding
     }
     
     /// 计算当前 option 在 options 内的 index
@@ -325,11 +290,11 @@ public extension String {
     /// - Returns: indexPath
     func calculateIndexPath(in options: [[String]], isIncludeSection: Bool = false) -> IndexPath? {
         let sectionOfOptions = options.filter { (arr) -> Bool in
-            arr.contains(self)
+            arr.contains(base)
         }
         guard let sectionValue = sectionOfOptions.first,
             let section = options.index(where: {$0 == sectionValue}),
-            let row = sectionValue.index(where: {$0 == self})
+            let row = sectionValue.index(where: {$0 == base})
             else {
                 return nil
         }
@@ -338,14 +303,14 @@ public extension String {
     }
 }
 
-
 public enum DateFormatHit {
     case none
     case RFC822
     case RFC3339
 }
 
-public extension Date {
+extension Date: ExtensionsCompatible { }
+public extension Extensions where Base == Date {
     
     static func internetDateTimeFormatter() -> DateFormatter {
         let locale = Locale(identifier: "en_US_POSIX")
@@ -360,15 +325,15 @@ public extension Date {
         var date: Date?
         if hint != .RFC3339 {
             // try RFC822 first
-            date = Date.dateFromRFC822(dateString: dateString)
+            date = Date.ex.dateFromRFC822(dateString: dateString)
             if date == nil {
-                date = Date.dateFromRFC3339(dateString: dateString)
+                date = Date.ex.dateFromRFC3339(dateString: dateString)
             }
         } else {
             //Try RFC3339 first
-            date = Date.dateFromRFC3339(dateString: dateString)
+            date = Date.ex.dateFromRFC3339(dateString: dateString)
             if (date == nil) {
-                date = Date.dateFromRFC822(dateString: dateString)
+                date = Date.ex.dateFromRFC822(dateString: dateString)
             }
         }
         return date
@@ -377,7 +342,7 @@ public extension Date {
     // See http://www.faqs.org/rfcs/rfc822.html
     static func dateFromRFC822(dateString: String) -> Date? {
         var date: Date?
-        let dateFormatter = Date.internetDateTimeFormatter()
+        let dateFormatter = Date.ex.internetDateTimeFormatter()
         let RFC822String = dateString.uppercased()
         
         if (RFC822String.contains(",")) {
@@ -421,7 +386,7 @@ public extension Date {
     // See http://www.faqs.org/rfcs/rfc3339.html
     static func dateFromRFC3339(dateString: String) -> Date? {
         var date: Date?
-        let dateFormatter = Date.internetDateTimeFormatter()
+        let dateFormatter = Date.ex.internetDateTimeFormatter()
         var RFC3339String = dateString.uppercased()
         RFC3339String = RFC3339String.replacingOccurrences(of: "Z", with: "-0000")
         if (RFC3339String.count > 20) {
@@ -443,10 +408,10 @@ public extension Date {
     }
 }
 
-
-public extension UIButton {
+extension UIButton: ExtensionsCompatible { }
+public extension Extensions where Base: UIButton {
     
-    static func create(title: String?, fontSize: CGFloat = 14, normalColor: UIColor? = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1), highlightedColor: UIColor? = nil, backgroundImage: UIImage? = nil, backgroundColor: UIColor? = nil, moveTo superView: UIView? = nil, moreSetter: ((_ button: UIButton)->())? = nil) -> UIButton {
+    static func create(title: String?, fontSize: CGFloat = 14, normalColor: UIColor? = .black, highlightedColor: UIColor? = nil, backgroundImage: UIImage? = nil, backgroundColor: UIColor? = nil, moveTo superView: UIView? = nil, moreSetter: ((_ button: UIButton)->())? = nil) -> UIButton {
         let button = UIButton()
         button.setTitle(title, for: .normal)
         if let normalColor = normalColor {
@@ -477,8 +442,8 @@ public extension UIButton {
     }
 }
 
-
-public extension UILabel {
+extension UILabel: ExtensionsCompatible { }
+public extension Extensions where Base: UILabel {
     
     static func create(_ text: String, alignment: NSTextAlignment = .center, textColor: UIColor = .black, font size: CGFloat, lines: Int = 0, moveTo superView: UIView? = nil, moreSetter: ((_ label: UILabel)->())? = nil) -> UILabel {
         let label = UILabel()
@@ -495,16 +460,16 @@ public extension UILabel {
     }
 }
 
-
-public extension UIImageView {
+extension UIImageView: ExtensionsCompatible { }
+public extension Extensions where Base: UIImageView {
     
     func setImage(_ image: UIImage, color: UIColor? = nil, contentMode: UIViewContentMode = .scaleAspectFit) {
-        self.contentMode = contentMode
+        base.contentMode = contentMode
         if let color = color {
-            self.image = image.withRenderingMode(.alwaysTemplate)
-            self.tintColor = color
+            base.image = image.withRenderingMode(.alwaysTemplate)
+            base.tintColor = color
         } else {
-            self.image = image
+            base.image = image
         }
     }
     
@@ -519,7 +484,7 @@ public extension UIImageView {
         for i in 0..<CGImageSourceGetCount(imageSource) {
             guard let cgImage = CGImageSourceCreateImageAtIndex(imageSource, i, nil) else { continue }
             let image = UIImage(cgImage: cgImage)
-            i == 0 ? self.image = image : ()
+            i == 0 ? base.image = image : ()
             gifImages.append(image)
             
             let properties = CGImageSourceCopyPropertiesAtIndex(imageSource, i, nil)
@@ -532,20 +497,20 @@ public extension UIImageView {
             totalDuration += frameDuration
         }
         
-        animationImages = gifImages
-        animationDuration = totalDuration
-        animationRepeatCount = 0
-        startAnimating()
+        base.animationImages = gifImages
+        base.animationDuration = totalDuration
+        base.animationRepeatCount = 0
+        base.startAnimating()
     }
 }
 
-
-public extension UIAlertController {
+extension UIAlertController: ExtensionsCompatible { }
+public extension Extensions where Base: UIAlertController {
     
     static func present(title: String?, message: String?, preferredStyle: UIAlertControllerStyle, cancel: String = "cancel", cancelHandler: ((UIAlertAction)->Void)? = nil, position: CGPoint? = nil, actions: [UIAlertAction], moreSetter: ((_ alert: UIAlertController)->())? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
-        alert.addAction(UIAlertAction(title: cancel.localized(), style: .cancel, handler: cancelHandler))
-        alert.addActions(actions)
+        alert.addAction(UIAlertAction(title: cancel.ex.localized(), style: .cancel, handler: cancelHandler))
+        alert.ex.addActions(actions)
         
         if let moreSetter = moreSetter {
             moreSetter(alert)
@@ -566,16 +531,21 @@ public extension UIAlertController {
     
     func addActions(_ actions: [UIAlertAction]) {
         actions.forEach {
-            addAction($0)
+            base.addAction($0)
         }
     }
 }
 
-
-public extension UIScreen {
+extension UIScreen: ExtensionsCompatible { }
+public extension Extensions where Base: UIScreen {
     
-    static let portraitWidth = [UIScreen.width, UIScreen.height].min()!
-    static let landscapeWidth = [UIScreen.width, UIScreen.height].max()!
+    static var portraitWidth: CGFloat {
+        return [UIScreen.ex.width, UIScreen.ex.height].min()!
+    }
+    
+    static var landscapeWidth: CGFloat {
+        return [UIScreen.ex.width, UIScreen.ex.height].max()!
+    }
     
     /// screen width
     static var width: CGFloat {
@@ -588,31 +558,8 @@ public extension UIScreen {
     }
 }
 
-extension DispatchQueue {
-    
-    private static var _onceTracker = [String]()
-    
-    /**
-     Executes a block of code, associated with a unique token, only once.  The code is thread safe and will
-     only execute the code once even in the presence of multithreaded calls.
-     
-     - parameter token: A unique reverse DNS style name such as com.vectorform.<name> or a GUID
-     - parameter block: Block to execute once
-     */
-    public static func once(token: String, block:()->Void) {
-        objc_sync_enter(self)
-        defer { objc_sync_exit(self) }
-        
-        if _onceTracker.contains(token) {
-            return
-        }
-        
-        _onceTracker.append(token)
-        block()
-    }
-}
-
-public extension UIDevice {
+extension UIDevice: ExtensionsCompatible { }
+public extension Extensions where Base: UIDevice {
     
     /// 通过高度判断是否为 iPhone X
     static var isX: Bool {
@@ -620,12 +567,13 @@ public extension UIDevice {
     }
 }
 
-public extension Bundle {
+extension Bundle: ExtensionsCompatible { }
+public extension Extensions where Base: Bundle {
     
-    static let displayName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String ?? ""
-    static let versionString = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
-    static let buildVersion = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? ""
+    static var displayName: String { return Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String ?? "" }
+    static var versionString: String { return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "" }
+    static var buildVersion: String { return Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "" }
     
-    static let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+    static var documentDirectory: String { return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] }
 }
 

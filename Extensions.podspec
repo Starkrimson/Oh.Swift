@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Extensions'
-  s.version          = '0.2.0'
+  s.version          = '0.2.1'
   s.summary          = 'Swift Extensions.'
 
 # This description is used to generate tags and improve search results.
@@ -24,7 +24,7 @@ My persional Swift extensions
   s.homepage         = 'https://gitee.com/anicon/Extensions'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Xujx' => 'jagni@live.com' }
+  s.author           = { 'Starkrimson' => 'starkrimson@icloud.com' }
   s.source           = { :git => 'https://gitee.com/anicon/Extensions.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
