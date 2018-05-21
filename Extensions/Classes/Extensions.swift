@@ -245,7 +245,7 @@ extension String: ExtensionsCompatible {
     ///   - rhs: 文件夹或者文件名
     /// - Returns: 新路径
     /// eg. "/Doc"/"folder"/"fileName.md" --> "/Doc/folder/fileName.md"
-    static func /(lhs: String, rhs: String) -> String {
+    public static func /(lhs: String, rhs: String) -> String {
         return lhs + "/" + rhs
     }
 }

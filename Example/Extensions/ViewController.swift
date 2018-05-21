@@ -36,6 +36,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         let date = Date.ex.dateFromRFC822(dateString: "Sun, 19 May 2002 15:21:36 GMT")
         let date1 = Date.ex.dateFromRFC3339(dateString: "1996-12-19T16:39:57-0800")
         let width = UIScreen.ex.portraitWidth
+        let path = Bundle.ex.documentDirectory/"hehe"
+        
         print(date)
     }
     
