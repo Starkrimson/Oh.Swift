@@ -103,30 +103,38 @@ public extension Extensions where Base: UIColor {
 extension UIImage: ExtensionsCompatible { }
 public extension Extensions where Base: UIImage {
     
-    func makeCircularImage(size: CGSize, borderWidth width: CGFloat) -> UIImage {
+    /// 绘制圆角图片
+    ///
+    /// - Parameters:
+    ///   - cornerRadius: 圆角半径
+    ///   - size: image size default self.size
+    ///   - borderWidth: 边框宽度
+    ///   - borderColor: 边框颜色
+    /// - Returns: 圆角图片
+    func cornerRadius(_ cornerRadius: CGFloat, size: CGSize = .zero, borderWidth: CGFloat = 0, borderColor: UIColor = .white) -> UIImage {
         // make a CGRect with the image's size
-        let circleRect = CGRect(origin: .zero, size: size)
+        let rect = CGRect(origin: .zero, size: size == .zero ? base.size : size)
         
         // begin the image context since we're not in a drawRect:
-        UIGraphicsBeginImageContextWithOptions(circleRect.size, false, 0)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
         
-        // create a UIBezierPath circle
-        let circle = UIBezierPath(roundedRect: circleRect, cornerRadius: circleRect.size.width * 0.5)
+        // create a UIBezierPath
+        let roundedPath = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius)
         
-        // clip to the circle
-        circle.addClip()
+        // clip to the roundedPath
+        roundedPath.addClip()
         
         UIColor.white.set()
-        circle.fill()
+        roundedPath.fill()
         
-        // draw the image in the circleRect *AFTER* the context is clipped
-        base.draw(in: circleRect)
+        // draw the image in the rect *AFTER* the context is clipped
+        base.draw(in: rect)
         
-        // create a border (for white background pictures)
-        if width > 0 {
-            circle.lineWidth = width;
-            UIColor.white.set()
-            circle.stroke()
+        // create a border
+        if borderWidth > 0 {
+            roundedPath.lineWidth = borderWidth;
+            borderColor.set()
+            roundedPath.stroke()
         }
         
         // get an image from the image context
@@ -138,13 +146,22 @@ public extension Extensions where Base: UIImage {
         return roundedImage ?? base
     }
     
-    func create(size: CGSize? = nil, backgroundColor: UIColor = UIColor.white) -> UIImage? {
-        var size = size
-        if size == nil {
-            size = base.size
-        }
-        
-        let rect = CGRect(origin: CGPoint(), size: size!)
+    /// 绘制圆形图片
+    ///
+    /// - Parameters:
+    ///   - size: 图片 size default self.siae
+    ///   - borderWidth: 边框宽
+    ///   - borderColor: 边框颜色
+    /// - Returns: 圆形图片
+    func circular(size: CGSize = .zero, borderWidth: CGFloat = 0, borderColor: UIColor = .white) -> UIImage {
+        let rect = CGRect(origin: .zero, size: size == .zero ? base.size : size)
+        return base.ex.cornerRadius(rect.size.width, size: rect.size, borderWidth: borderWidth, borderColor: borderColor)
+    }
+    
+    /// 绘制图片
+    func draw(size: CGSize = .zero, backgroundColor: UIColor = UIColor.white) -> UIImage? {
+        let size = size == .zero ? base.size : size
+        let rect = CGRect(origin: CGPoint(), size: size)
         
         UIGraphicsBeginImageContextWithOptions(rect.size, true, 0)
         
@@ -158,7 +175,6 @@ public extension Extensions where Base: UIImage {
         UIGraphicsEndImageContext()
         
         return result
-        
     }
     
     /// 屏幕截图
