@@ -445,18 +445,22 @@ public extension Extensions where Base: UIButton {
 extension UILabel: ExtensionsCompatible { }
 public extension Extensions where Base: UILabel {
     
-    static func create(_ text: String, alignment: NSTextAlignment = .center, textColor: UIColor = .black, font size: CGFloat, lines: Int = 0, moveTo superView: UIView? = nil, moreSetter: ((_ label: UILabel)->())? = nil) -> UILabel {
+    static func create(_ text: String, alignment: NSTextAlignment = .center, textColor: UIColor = .black, font: UIFont, lines: Int = 0, moveTo superView: UIView? = nil, moreSetter: ((_ label: UILabel)->())? = nil) -> UILabel {
         let label = UILabel()
         superView?.addSubview(label)
         label.text = text
         label.textAlignment = alignment
         label.textColor = textColor
-        label.font = UIFont.systemFont(ofSize: size)
+        label.font = font
         label.numberOfLines = lines
         if let moreSetter = moreSetter {
             moreSetter(label)
         }
         return label
+    }
+    
+    static func create(_ text: String, alignment: NSTextAlignment = .center, textColor: UIColor = .black, font size: CGFloat, lines: Int = 0, moveTo superView: UIView? = nil, moreSetter: ((_ label: UILabel)->())? = nil) -> UILabel {
+        return UILabel.ex.create(text, alignment: alignment, textColor: textColor, font: UIFont.systemFont(ofSize: size), lines: lines, moveTo: superView,  moreSetter: moreSetter)
     }
 }
 
@@ -526,13 +530,16 @@ public extension Extensions where Base: UIAlertController {
         DispatchQueue.main.async {
             rootViewController?.present(alert, animated: true, completion: nil)
         }
-        
     }
     
     func addActions(_ actions: [UIAlertAction]) {
-        actions.forEach {
-            base.addAction($0)
-        }
+        actions.forEach(base.addAction)
+    }
+    
+    static func debugAlert(_ message: String) {
+        #if DEBUG
+        UIAlertController.ex.present(title: "Debug", message: message, preferredStyle: .alert, actions: [])
+        #endif
     }
 }
 
