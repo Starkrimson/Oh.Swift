@@ -9,7 +9,7 @@
 import UIKit
 import Extensions
 
-class ViewController: UIViewController, UIGestureRecognizerDelegate {
+class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             label.frame = CGRect(x: 20, y: 20, width: 100, height: 40)
         }
         
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "NFSNL").ex.draw())
+        imageView.frame = CGRect(x: 20, y: 20, width: 300, height: 300)
+        view.addSubview(imageView)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
