@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Extensions'
-  s.version          = '0.2.4'
+  s.version          = '0.2.5'
   s.summary          = 'Swift Extensions.'
 
 # This description is used to generate tags and improve search results.
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-My persional Swift extensions
+My personal Swift extensions
                        DESC
 
   s.homepage         = 'https://gitee.com/anicon/Extensions'

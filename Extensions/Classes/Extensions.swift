@@ -84,6 +84,12 @@ public extension Extensions where Base: UIColor {
         return UIColor.ex.rgb(r: arc4random_uniform(256), g: arc4random_uniform(256), b: arc4random_uniform(256))
     }
     
+    /// 返回 UIColor 的颜色数值，0 ~ 1。
+    var components: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+        let ciColor = CIColor(cgColor: base.cgColor)
+        return (ciColor.red, ciColor.green, ciColor.blue, ciColor.alpha)
+    }
+
     static func hex(_ hex: UInt32) -> UIColor {
         let r = (hex & 0xff0000) >> 16
         let g = (hex & 0x00ff00) >> 8
