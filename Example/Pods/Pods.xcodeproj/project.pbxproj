@@ -38,7 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		09F410372112AD47009B6653 /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
+		09F410372112AD47009B6653 /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Delegate.swift; path = Extensions/Classes/Delegate.swift; sourceTree = "<group>"; };
 		0C632348C036CAA77B334F3CAEDDE043 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10282A435A9225833F5A2D8CFEACE024 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		264AD378C78FF3B0E9A74E259FDC759F /* Extensions-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Extensions-prefix.pch"; sourceTree = "<group>"; };
