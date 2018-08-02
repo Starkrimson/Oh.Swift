@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09F410382112AD47009B6653 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F410372112AD47009B6653 /* Delegate.swift */; };
 		1FDB0117CCA4D123F88CBDE18C35868A /* Pods-Extensions_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FF6C522407ADDBBB3A3FA4CAA1A2447E /* Pods-Extensions_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		39B70AD94637F2082E673DC749376EC2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		3AE42799EAE3B466155E3C805C2EC879 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09F410372112AD47009B6653 /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		0C632348C036CAA77B334F3CAEDDE043 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10282A435A9225833F5A2D8CFEACE024 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		264AD378C78FF3B0E9A74E259FDC759F /* Extensions-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Extensions-prefix.pch"; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				FC751494A3533919C2B51DC893422A20 /* Extensions.swift */,
+				09F410372112AD47009B6653 /* Delegate.swift */,
 				446C4E5EE7DACEF5BA95D89D3E850EFF /* Pod */,
 				64AF280B2A792D638CADEAF54A109891 /* Support Files */,
 			);
@@ -344,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51D96F194955E45F4F287B97912D8849 /* Extensions-dummy.m in Sources */,
+				09F410382112AD47009B6653 /* Delegate.swift in Sources */,
 				4207525EA0C02AE7A8A8D377D78A956A /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
