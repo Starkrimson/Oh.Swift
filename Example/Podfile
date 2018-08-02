@@ -1,12 +1,15 @@
+platform :ios, '9.3'
+
 use_frameworks!
 
 target 'Extensions_Example' do
-  pod 'Extensions', :path => '../'
+  # pod 'Extensions', :path => '../'
+  pod 'Extensions/Rx', :path => '../'
 
- playground "Extensions.playground" do
-    pod 'Extensions', :path => '../'
- end
- support_iboutlets!
+# playground "Extensions.playground" do
+#    pod 'Extensions', :path => '../'
+# end
+# support_iboutlets!
 
   target 'Extensions_Tests' do
     inherit! :search_paths

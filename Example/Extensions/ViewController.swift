@@ -8,6 +8,7 @@
 
 import UIKit
 import Extensions
+import RxSwift
 
 class ViewController: UIViewController {
     
@@ -35,6 +36,7 @@ class ViewController: UIViewController {
             self.textlabel.text = "clear"
         }
         view.addSubview(inputView)
+        _ = rx.disposeBag
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

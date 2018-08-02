@@ -1,16 +1,25 @@
 PODS:
-  - Extensions (0.1.0)
+  - Extensions/Core (0.4.0)
+  - Extensions/Rx (0.4.0):
+    - Extensions/Core
+    - RxSwift (~> 4.0)
+  - RxSwift (4.2.0)
 
 DEPENDENCIES:
-  - Extensions (from `../`)
+  - Extensions/Rx (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - RxSwift
 
 EXTERNAL SOURCES:
   Extensions:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Extensions: 52a8a9f995bee9c8c428f5bf59d5bd51b94a2ded
+  Extensions: 5f42bf0b1159f3ad72c7a8f28f507007e967464f
+  RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
 
-PODFILE CHECKSUM: aa8e3c8405ece8a7e2aeded500ef44a5b9cc00ee
+PODFILE CHECKSUM: bb9bc249dfe62c272d1b57ad3ca722953c75c39a
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

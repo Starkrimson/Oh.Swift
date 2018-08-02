@@ -1,22 +1,40 @@
 {
   "name": "Extensions",
-  "version": "0.1.0",
-  "summary": "A short description of Extensions.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/Xujx/Extensions",
+  "version": "0.4.0",
+  "summary": "Swift Extensions.",
+  "description": "My personal Swift extensions",
+  "homepage": "https://source.developers.google.com/p/starkrimsonx/r/Extensions",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "Xujx": "jagni@live.com"
+    "Starkrimson": "starkrimson@icloud.com"
   },
   "source": {
-    "git": "https://github.com/Xujx/Extensions.git",
-    "tag": "0.1.0"
+    "git": "https://source.developers.google.com/p/starkrimsonx/r/Extensions",
+    "tag": "0.4.0"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "Extensions/Classes/**/*"
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Extensions/Classes/Core/**/*"
+    },
+    {
+      "name": "Rx",
+      "source_files": "Extensions/Classes/Rx/**/*",
+      "dependencies": {
+        "Extensions/Core": [
+
+        ],
+        "RxSwift": [
+          "~> 4.0"
+        ]
+      }
+    }
+  ]
 }

@@ -6,9 +6,9 @@ public struct Extensions<Base> {
 }
 
 public protocol ExtensionsCompatible {
-    associatedtype CompatibleType
-    static var ex: Extensions<CompatibleType>.Type { get set }
-    var ex: Extensions<CompatibleType> { get set }
+    associatedtype ExtensionsCompatibleType
+    static var ex: Extensions<ExtensionsCompatibleType>.Type { get set }
+    var ex: Extensions<ExtensionsCompatibleType> { get set }
 }
 
 extension ExtensionsCompatible {

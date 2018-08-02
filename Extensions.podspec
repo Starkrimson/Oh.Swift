@@ -8,18 +8,11 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Extensions'
-  s.version          = '0.3.1'
+  s.version          = '0.4.0'
   s.summary          = 'Swift Extensions.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
-  s.description      = <<-DESC
-My personal Swift extensions
-                       DESC
+  s.description      = <<-DESC 
+    My personal Swift extensions 
+  DESC
 
   s.homepage         = 'https://source.developers.google.com/p/starkrimsonx/r/Extensions'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
@@ -30,13 +23,15 @@ My personal Swift extensions
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'Extensions/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'Extensions' => ['Extensions/Assets/*.png']
-  # }
+  s.default_subspec = 'Core'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.subspec 'Core' do |core|
+    core.source_files = 'Extensions/Classes/Core/**/*'
+  end
+
+  s.subspec 'Rx' do |rx|
+    rx.source_files = 'Extensions/Classes/Rx/**/*'
+    rx.dependency 'Extensions/Core'
+    rx.dependency 'RxSwift', '~> 4.0'
+  end
 end
