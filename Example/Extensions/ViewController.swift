@@ -37,6 +37,10 @@ class ViewController: UIViewController {
         }
         view.addSubview(inputView)
         _ = rx.disposeBag
+        let tableView = UITableView()
+        tableView.rx.modelSelectedAtIndexPath(UIView.self).subscribe(onNext: { value in
+            
+        }).disposed(by: rx.disposeBag)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
