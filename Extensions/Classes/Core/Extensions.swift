@@ -210,11 +210,12 @@ public extension Extensions where Base: NSAttributedString {
         return attributedString
     }
     
-    static func attributedString(string: String?, font: UIFont, color: UIColor?) -> NSAttributedString? {
+    static func attributedString(string: String?, font: UIFont, color: UIColor?, attributes: [NSAttributedString.Key : Any] = [:]) -> NSAttributedString? {
         guard let string = string else { return nil }
         
-        let attributes = [NSAttributedStringKey.foregroundColor: color ?? UIColor.black,
-                          NSAttributedStringKey.font: font]
+        var attributes = attributes
+        attributes[.foregroundColor] = color ?? UIColor.black
+        attributes[.font] = font
         
         let attributedString = NSMutableAttributedString(string: string, attributes: attributes)
         

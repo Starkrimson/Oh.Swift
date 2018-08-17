@@ -1,0 +1,10 @@
+/*
+ Localizable.strings
+ Extensions
+ 
+ Created by Tsui on 17/8/2018.
+ Copyright © 2016 Starkrimson. All rights reserved.
+ */
+
+cancel = "取消";
+confirm = "確認";

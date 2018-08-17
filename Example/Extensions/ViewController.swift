@@ -27,6 +27,16 @@ class ViewController: UIViewController {
         navigationItem.leftBarButtonItem?.rx.tap.subscribe(onNext:{
             UIAlertController.ex.alert(message: "Go fuck YOURSELF")
         }).disposed(by: rx.disposeBag)
+           
+        let label = UILabel(frame: CGRect(x: 20, y: 200, width: 300, height: 100))
+        view.addSubview(label)
+        
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.lineSpacing = 10
+        paragraph.alignment = .left
+        paragraph.lineBreakMode = .byTruncatingTail
+        
+        label.attributedText = NSAttributedString.ex.attributedString(string: "hello fucking hell", font: UIFont.boldSystemFont(ofSize: 50), color: .purple, attributes: [.paragraphStyle: paragraph])
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
