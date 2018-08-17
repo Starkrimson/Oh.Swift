@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Extensions'
-  s.version          = '0.4.1'
+  s.version          = '0.5.0'
   s.summary          = 'Swift Extensions.'
   s.description      = <<-DESC 
     My personal Swift extensions 
@@ -27,8 +27,11 @@ Pod::Spec.new do |s|
 
   s.subspec 'Core' do |core|
     core.source_files = 'Extensions/Classes/Core/**/*'
+    core.resource_bundles = {
+      'Localization' => ['Extensions/Localization/*.lproj/*']
+    }  
   end
-
+  
   s.subspec 'Rx' do |rx|
     rx.source_files = 'Extensions/Classes/Rx/**/*'
     rx.dependency 'Extensions/Core'

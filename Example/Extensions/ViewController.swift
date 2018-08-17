@@ -16,30 +16,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let label = UILabel.ex.create("xixi", font: UIFont.boldSystemFont(ofSize: 30))
-        view.addSubview(label)
-        label.center = view.center
-        label.sizeToFit()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: nil, action: nil)
+        navigationItem.rightBarButtonItem?.rx.tap.subscribe(onNext:{
+            UIAlertController.ex.present(title: "go fuck", message: "yourself", preferredStyle: .actionSheet, cancel: "hell", cancelHandler: { (_) in
+                print("ff")
+            }, actions: [])
+        }).disposed(by: rx.disposeBag)
         
-        _ = UILabel.ex.create("hehe", font: 20) { label in
-            self.view.addSubview(label)
-            label.frame = CGRect(x: 20, y: 20, width: 100, height: 40)
-        }
-        
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "NFSNL").ex.draw())
-        imageView.frame = CGRect(x: 20, y: 20, width: 300, height: 300)
-        view.addSubview(imageView)
-        
-        let inputView = Textview(frame: CGRect(x: 20, y: 420, width: UIScreen.ex.width, height: 100))
-        inputView.onTapAbort.delegate(on: self) { (self, _) in
-            label.text = "clear"
-            self.textlabel.text = "clear"
-        }
-        view.addSubview(inputView)
-        _ = rx.disposeBag
-        let tableView = UITableView()
-        tableView.rx.modelSelectedAtIndexPath(UIView.self).subscribe(onNext: { value in
-            
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: nil, action: nil)
+        navigationItem.leftBarButtonItem?.rx.tap.subscribe(onNext:{
+            UIAlertController.ex.alert(message: "Go fuck YOURSELF")
         }).disposed(by: rx.disposeBag)
     }
     

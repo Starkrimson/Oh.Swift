@@ -1,6 +1,6 @@
 PODS:
-  - Extensions/Core (0.4.1)
-  - Extensions/Rx (0.4.1):
+  - Extensions/Core (0.5.0)
+  - Extensions/Rx (0.5.0):
     - Extensions/Core
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
@@ -21,7 +21,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Extensions: 271b0ea8d2e784317ef5db6eb2bd9ab4482a32ee
+  Extensions: f71be9e95a07d68d41bd7da2520ee0a2ffa89da7
   RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
   RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
 

@@ -1,6 +1,6 @@
 {
   "name": "Extensions",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "summary": "Swift Extensions.",
   "description": "My personal Swift extensions",
   "homepage": "https://source.developers.google.com/p/starkrimsonx/r/Extensions",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://source.developers.google.com/p/starkrimsonx/r/Extensions",
-    "tag": "0.4.1"
+    "tag": "0.5.0"
   },
   "platforms": {
     "ios": "8.0"
@@ -22,7 +22,12 @@
   "subspecs": [
     {
       "name": "Core",
-      "source_files": "Extensions/Classes/Core/**/*"
+      "source_files": "Extensions/Classes/Core/**/*",
+      "resource_bundles": {
+        "Localization": [
+          "Extensions/Localization/*.lproj/*"
+        ]
+      }
     },
     {
       "name": "Rx",

@@ -535,7 +535,11 @@ public extension Extensions where Base: UIAlertController {
     
     static func present(title: String?, message: String?, preferredStyle: UIAlertControllerStyle, cancel: String = "cancel", cancelHandler: ((UIAlertAction)->Void)? = nil, position: CGPoint? = nil, actions: [UIAlertAction], moreSetter: ((_ alert: UIAlertController)->())? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
-        alert.addAction(UIAlertAction(title: cancel.ex.localized(), style: .cancel, handler: cancelHandler))
+        
+        let bundleURL = Bundle.main.privateFrameworksURL?.appendingPathComponent("Extensions.framework").appendingPathComponent("Localization.bundle")
+        let bundle = Bundle(url: bundleURL!)!
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString(cancel, bundle: bundle, comment: "Localizable"), style: .cancel, handler: cancelHandler))
         alert.ex.addActions(actions)
         
         if let moreSetter = moreSetter {
@@ -560,8 +564,12 @@ public extension Extensions where Base: UIAlertController {
     
     static func debugAlert(_ message: String) {
         #if DEBUG
-        UIAlertController.ex.present(title: "Debug", message: message, preferredStyle: .alert, actions: [])
+        UIAlertController.ex.present(title: "Debug", message: message, preferredStyle: .alert, cancel: "confirm", actions: [])
         #endif
+    }
+    
+    static func alert(title: String = "Error", message: String) {
+        UIAlertController.ex.present(title: title, message: message, preferredStyle: .alert, cancel: "confirm", actions: [])
     }
 }
 
