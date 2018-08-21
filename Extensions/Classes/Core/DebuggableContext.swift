@@ -206,4 +206,18 @@ private extension UIWindow {
         return rootViewController?.topMostViewController()
     }
 }
+#else
+public struct DebuggableContextItem {
+    let name: String
+    let action: () -> Void
+    public init(name: String, action: @escaping () -> Void) {
+        self.name = name
+        self.action = action
+    }
+}
+public protocol DebuggableContext: class { }
+extension DebuggableContext {
+    var debugMenus: [DebuggableContextItem] { return [] }
+    public func registerDebug() { }
+}
 #endif

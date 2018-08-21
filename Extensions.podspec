@@ -8,10 +8,10 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Extensions'
-  s.version          = '0.6.0'
+  s.version          = '0.6.1'
   s.summary          = 'Swift Extensions.'
   s.description      = <<-DESC 
-    My personal Swift extensions 
+    My own Swift extensions 
   DESC
 
   s.homepage         = 'https://source.developers.google.com/p/starkrimsonx/r/Extensions'

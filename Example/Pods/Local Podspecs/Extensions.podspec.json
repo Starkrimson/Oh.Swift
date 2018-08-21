@@ -1,8 +1,8 @@
 {
   "name": "Extensions",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "summary": "Swift Extensions.",
-  "description": "My personal Swift extensions",
+  "description": "My own Swift extensions",
   "homepage": "https://source.developers.google.com/p/starkrimsonx/r/Extensions",
   "license": {
     "type": "MIT",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://source.developers.google.com/p/starkrimsonx/r/Extensions",
-    "tag": "0.6.0"
+    "tag": "0.6.1"
   },
   "platforms": {
     "ios": "8.0"
