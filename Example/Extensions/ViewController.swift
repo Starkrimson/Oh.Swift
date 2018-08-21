@@ -37,6 +37,10 @@ class ViewController: UIViewController {
         paragraph.lineBreakMode = .byTruncatingTail
         
         label.attributedText = NSAttributedString.ex.attributedString(string: "hello fucking hell", font: UIFont.boldSystemFont(ofSize: 50), color: .purple, attributes: [.paragraphStyle: paragraph])
+        
+        #if DEBUG
+        registerDebug()
+        #endif
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -83,3 +87,19 @@ class Textview: UIView, UITextFieldDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+#if DEBUG
+extension ViewController: DebuggableContext {
+    
+    var debugMenus: [DebuggableContextItem] {
+        return [
+            DebuggableContextItem(name: "Color to Cupid", action: { [weak self] in
+                self?.view.backgroundColor = UIColor(red:0.94, green:0.73, blue:0.83, alpha:1.00)
+            }),
+            .init(name: "Color To Mint") { [weak self] in
+                self?.view.backgroundColor = UIColor(red:0.71, green:0.96, blue:0.82, alpha:1.00)
+            }
+        ]
+    }
+}
+#endif

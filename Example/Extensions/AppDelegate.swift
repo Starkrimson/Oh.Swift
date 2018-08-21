@@ -7,12 +7,25 @@
 //
 
 import UIKit
+import Extensions
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    #if DEBUG
+    var _shakeDetectingWindow: ShakeDetectingWindow?
+    var window: UIWindow? {
+        get {
+            return _shakeDetectingWindow ?? {
+                _shakeDetectingWindow = ShakeDetectingWindow(frame: UIScreen.main.bounds)
+                return _shakeDetectingWindow
+                }()
+        }
+        set {}
+    }
+    #else
     var window: UIWindow?
-
+    #endif
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -43,4 +56,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-
