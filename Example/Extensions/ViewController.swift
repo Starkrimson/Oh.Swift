@@ -28,7 +28,7 @@ class ViewController: UIViewController {
             UIAlertController.ex.alert(message: "Go fuck YOURSELF")
         }).disposed(by: rx.disposeBag)
            
-        let label = UILabel(frame: CGRect(x: 20, y: 200, width: 300, height: 100))
+        let label = UILabel()//(frame: CGRect(x: 20, y: 200, width: 300, height: 100))
         view.addSubview(label)
         
         let paragraph = NSMutableParagraphStyle()
@@ -39,6 +39,13 @@ class ViewController: UIViewController {
         label.attributedText = NSAttributedString.ex.attributedString(string: "hello fucking hell", font: UIFont.boldSystemFont(ofSize: 50), color: .purple, attributes: [.paragraphStyle: paragraph])
         
         registerDebug()
+
+        if #available(iOS 11.0, *) {
+            label.backgroundColor = .yellow
+            label.ex.safeAreaContraints()
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
