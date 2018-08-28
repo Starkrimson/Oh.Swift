@@ -36,13 +36,12 @@ class ViewController: UIViewController {
         paragraph.alignment = .left
         paragraph.lineBreakMode = .byTruncatingTail
         
-        label.attributedText = NSAttributedString.ex.attributedString(string: "hello fucking hell", font: UIFont.boldSystemFont(ofSize: 50), color: .purple, attributes: [.paragraphStyle: paragraph])
+        label.attributedText = NSAttributedString.ex.attributedString(string: "hello hell", font: UIFont.boldSystemFont(ofSize: 50), color: .purple, attributes: [.paragraphStyle: paragraph])
         
         registerDebug()
-
         if #available(iOS 11.0, *) {
             label.backgroundColor = .yellow
-            label.ex.safeAreaContraints()
+            label.ex.makeSafeAreaContraints(offset: .init(top: 50, left: 50, bottom: 50, right: 50))
         } else {
             // Fallback on earlier versions
         }
