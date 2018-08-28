@@ -5,7 +5,7 @@ public extension Extensions where Base: UILayoutGuide {
     
 }
 
-extension UIView: ExtensionsCompatible { }
+//extension UIView: ExtensionsCompatible { }
 public extension Extensions where Base: UIView {
     
     @available(iOS 11.0, *)
