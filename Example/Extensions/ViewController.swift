@@ -45,6 +45,10 @@ class ViewController: UIViewController {
         } else {
             // Fallback on earlier versions
         }
+        
+        debugLog("hello")
+        debugLog([1, 2, 3])
+        debugLog(label)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Extensions'
-  s.version          = '0.7.1'
+  s.version          = '0.8.0'
   s.summary          = 'Swift Extensions.'
   s.description      = <<-DESC 
     My own Swift extensions 
