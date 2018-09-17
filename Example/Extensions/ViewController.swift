@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         paragraph.alignment = .left
         paragraph.lineBreakMode = .byTruncatingTail
         
-        label.attributedText = NSAttributedString.ex.attributedString(string: "hello hell", font: UIFont.boldSystemFont(ofSize: 50), color: .purple, attributes: [.paragraphStyle: paragraph])
+        label.attributedText = NSAttributedString.ex.attributedString(string: "Hello", font: UIFont.boldSystemFont(ofSize: 50), color: .purple, attributes: [.paragraphStyle: paragraph])
         
         registerDebug()
         if #available(iOS 11.0, *) {

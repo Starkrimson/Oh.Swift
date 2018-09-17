@@ -596,15 +596,6 @@ public extension Extensions where Base: UIScreen {
     }
 }
 
-extension UIDevice: ExtensionsCompatible { }
-public extension Extensions where Base: UIDevice {
-    
-    /// 通过高度判断是否为 iPhone X
-    static var isX: Bool {
-        return [UIScreen.main.bounds.height, UIScreen.main.bounds.width].max() == 812
-    }
-}
-
 extension Bundle: ExtensionsCompatible { }
 public extension Extensions where Base: Bundle {
     
