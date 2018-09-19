@@ -74,7 +74,7 @@ public struct DebuggableContextItem {
 }
 
 final public class ShakeDetectingWindow: UIWindow {
-    override public func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+    override public func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             NotificationCenter.default.post(name: .contextDebugDeviceShakenNotification, object: self)
             return

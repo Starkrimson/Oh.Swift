@@ -202,15 +202,15 @@ public extension Extensions where Base: NSAttributedString {
     static func attributedString(string: String?, fontSize size: CGFloat, color: UIColor?) -> NSAttributedString? {
         guard let string = string else { return nil }
         
-        let attributes = [NSAttributedStringKey.foregroundColor: color ?? UIColor.black,
-                          NSAttributedStringKey.font: UIFont.systemFont(ofSize: size)]
+        let attributes = [NSAttributedString.Key.foregroundColor: color ?? UIColor.black,
+                          .font: UIFont.systemFont(ofSize: size)]
         
         let attributedString = NSMutableAttributedString(string: string, attributes: attributes)
         
         return attributedString
     }
     
-    static func attributedString(string: String?, font: UIFont, color: UIColor?, attributes: [NSAttributedStringKey : Any] = [:]) -> NSAttributedString? {
+    static func attributedString(string: String?, font: UIFont, color: UIColor?, attributes: [NSAttributedString.Key : Any] = [:]) -> NSAttributedString? {
         guard let string = string else { return nil }
         
         var attributes = attributes
@@ -226,9 +226,9 @@ public extension Extensions where Base: NSAttributedString {
 extension CGPoint: ExtensionsCompatible { }
 public extension Extensions where Base == CGPoint {
     
-    var commitTranslation: UISwipeGestureRecognizerDirection? {
-        let absX = fabs(base.x)
-        let absY = fabs(base.y)
+    var commitTranslation: UISwipeGestureRecognizer.Direction? {
+        let absX = abs(base.x)
+        let absY = abs(base.y)
         
         guard absX + absY > 0.0 else {
             return nil
@@ -281,7 +281,7 @@ public extension Extensions where Base == String {
     
     func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
-        let boundingBox = base.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
+        let boundingBox = base.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font: font], context: nil)
         
         return boundingBox.height
     }
@@ -490,7 +490,7 @@ public extension Extensions where Base: UILabel {
 extension UIImageView: ExtensionsCompatible { }
 public extension Extensions where Base: UIImageView {
     
-    func setImage(_ image: UIImage, color: UIColor? = nil, contentMode: UIViewContentMode = .scaleAspectFit) {
+    func setImage(_ image: UIImage, color: UIColor? = nil, contentMode: UIView.ContentMode = .scaleAspectFit) {
         base.contentMode = contentMode
         if let color = color {
             base.image = image.withRenderingMode(.alwaysTemplate)
@@ -534,7 +534,7 @@ public extension Extensions where Base: UIImageView {
 extension UIAlertController: ExtensionsCompatible { }
 public extension Extensions where Base: UIAlertController {
     
-    static func present(title: String?, message: String?, preferredStyle: UIAlertControllerStyle, cancel: String = "cancel", cancelHandler: ((UIAlertAction)->Void)? = nil, position: CGPoint? = nil, actions: [UIAlertAction], moreSetter: ((_ alert: UIAlertController)->())? = nil) {
+    static func present(title: String?, message: String?, preferredStyle: UIAlertController.Style, cancel: String = "cancel", cancelHandler: ((UIAlertAction)->Void)? = nil, position: CGPoint? = nil, actions: [UIAlertAction], moreSetter: ((_ alert: UIAlertController)->())? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
         
         let bundleURL = Bundle.main.privateFrameworksURL?.appendingPathComponent("Extensions.framework").appendingPathComponent("Localization.bundle")
