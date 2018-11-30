@@ -1,16 +1,18 @@
 PODS:
-  - Extensions/Core (0.10.3)
-  - Extensions/Rx (0.10.3):
+  - Extensions/Core (0.10.4)
+  - Extensions/Rx (0.10.4):
     - Extensions/Core
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
-  - Extensions/Snp (0.10.3):
+  - Extensions/Snp (0.10.4):
     - Extensions/Core
     - SnapKit (~> 4.0)
-  - RxCocoa (4.3.0):
+  - RxAtomic (4.4.0)
+  - RxCocoa (4.4.0):
     - RxSwift (~> 4.0)
-  - RxSwift (4.3.0)
-  - SnapKit (4.0.1)
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
+  - SnapKit (4.2.0)
 
 DEPENDENCIES:
   - Extensions/Rx (from `../`)
@@ -18,6 +20,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - RxAtomic
     - RxCocoa
     - RxSwift
     - SnapKit
@@ -27,10 +30,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Extensions: fa8192c712d6e69ba97a5c06ba947868b2a44998
-  RxCocoa: 71b9cce833fbcb89a8eec11816dd225830c2bd3c
-  RxSwift: a9717a34df3179fe63563f76e046ad345078dd3a
-  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  Extensions: 0d942ca84dad3ae23dde4c2c7931e6225bb2abfb
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
 PODFILE CHECKSUM: 48d66b89425c1d59bb1a3ac150ff5ec0ca060cef
 
