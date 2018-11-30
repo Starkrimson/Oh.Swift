@@ -1,10 +1,10 @@
 PODS:
-  - Extensions/Core (0.10.0)
-  - Extensions/Rx (0.10.0):
+  - Extensions/Core (0.10.1)
+  - Extensions/Rx (0.10.1):
     - Extensions/Core
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
-  - Extensions/Snp (0.10.0):
+  - Extensions/Snp (0.10.1):
     - Extensions/Core
     - SnapKit (~> 4.0)
   - RxCocoa (4.3.0):
@@ -27,7 +27,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Extensions: a38f55171ad2b2be44f81595364db660d23dbbea
+  Extensions: 32ca56c0e95ed13ba6c36f575cfac56c7a1bdfe5
   RxCocoa: 71b9cce833fbcb89a8eec11816dd225830c2bd3c
   RxSwift: a9717a34df3179fe63563f76e046ad345078dd3a
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29

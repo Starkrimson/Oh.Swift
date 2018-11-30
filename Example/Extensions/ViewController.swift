@@ -18,8 +18,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: nil, action: nil)
         navigationItem.rightBarButtonItem?.rx.tap.subscribe(onNext:{
-            UIAlertController.ex.present(title: "go fuck", message: "yourself", preferredStyle: .actionSheet, cancel: "hell", cancelHandler: { (_) in
-                print("ff")
+            UIAlertController.ex.present(title: "open Settings", message: nil, preferredStyle: .actionSheet, cancel: "hell", cancelHandler: { (_) in
+                UIApplication.ex.openSetting()
             }, actions: [])
         }).disposed(by: rx.disposeBag)
         

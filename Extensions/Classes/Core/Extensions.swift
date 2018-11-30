@@ -600,9 +600,21 @@ extension Bundle: ExtensionsCompatible { }
 public extension Extensions where Base: Bundle {
     
     static var displayName: String { return Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String ?? "" }
-    static var versionString: String { return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "" }
+    static var marketingVersion: String { return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "" }
     static var buildVersion: String { return Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "" }
     
     static var documentDirectory: String { return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] }
 }
 
+extension UIApplication: ExtensionsCompatible { }
+public extension Extensions where Base: UIApplication {
+    
+    static func openSetting() {
+        let settingURL = URL(string: UIApplication.openSettingsURLString)!
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(settingURL, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(settingURL)
+        }
+    }
+}
