@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Extensions'
-  s.version          = '0.10.4'
+  s.version          = '0.10.5'
   s.summary          = 'Swift Extensions.'
   s.description      = <<-DESC 
     My own Swift extensions 
@@ -22,7 +22,8 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
-
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.2' }
+  
   s.default_subspec = 'Core'
 
   s.subspec 'Core' do |core|

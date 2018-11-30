@@ -1,6 +1,6 @@
 {
   "name": "Extensions",
-  "version": "0.10.4",
+  "version": "0.10.5",
   "summary": "Swift Extensions.",
   "description": "My own Swift extensions",
   "homepage": "https://source.developers.google.com/p/starkrimsonx/r/Extensions",
@@ -13,10 +13,13 @@
   },
   "source": {
     "git": "https://source.developers.google.com/p/starkrimsonx/r/Extensions",
-    "tag": "0.10.4"
+    "tag": "0.10.5"
   },
   "platforms": {
     "ios": "8.0"
+  },
+  "pod_target_xcconfig": {
+    "SWIFT_VERSION": "4.2"
   },
   "default_subspecs": "Core",
   "subspecs": [
