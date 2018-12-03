@@ -609,12 +609,12 @@ public extension Extensions where Base: Bundle {
 extension UIApplication: ExtensionsCompatible { }
 public extension Extensions where Base: UIApplication {
     
-    static func openSetting() {
-        let settingURL = URL(string: UIApplication.openSettingsURLString)!
+    static func openSettings() {
+        let settingsURL = URL(string: UIApplication.openSettingsURLString)!
         if #available(iOS 10.0, *) {
-            UIApplication.shared.open(settingURL, options: [:], completionHandler: nil)
+            UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
         } else {
-            UIApplication.shared.openURL(settingURL)
+            UIApplication.shared.openURL(settingsURL)
         }
     }
 }
