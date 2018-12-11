@@ -49,6 +49,8 @@ class ViewController: UIViewController {
         debugLog("hello")
         debugLog([1, 2, 3])
         debugLog(label)
+        
+        title = Bundle.ex.displayName
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

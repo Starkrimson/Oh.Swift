@@ -1,6 +1,6 @@
 {
   "name": "Extensions",
-  "version": "0.10.7",
+  "version": "0.10.8",
   "summary": "Swift Extensions.",
   "description": "My own Swift extensions",
   "homepage": "https://source.developers.google.com/p/starkrimsonx/r/Extensions",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://source.developers.google.com/p/starkrimsonx/r/Extensions",
-    "tag": "0.10.7"
+    "tag": "0.10.8"
   },
   "platforms": {
     "ios": "8.0"

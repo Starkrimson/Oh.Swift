@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0992D0DA21BFA32400578786 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0992D0DC21BFA32400578786 /* InfoPlist.strings */; };
 		21C2998C38347887BD086E66 /* Pods_Extensions_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD989815FF6730A16456E90 /* Pods_Extensions_Tests.framework */; };
 		5B63E05F407DF9D1B050416B /* Pods_Extensions_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6890CC551799A1DE3CA60A4B /* Pods_Extensions_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -28,6 +29,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0992D0DB21BFA32400578786 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0992D0DD21BFA35D00578786 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		0992D0DE21BFA35E00578786 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		0992D0DF21BFA35E00578786 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		5175CAAEE1D9BF2DF37621AE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		5C33CCFFA268212345793F11 /* Extensions.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Extensions.podspec; path = ../Extensions.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		5D812389AB85DE12D9C3DB9A /* Pods-Extensions_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Extensions_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Extensions_Tests/Pods-Extensions_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD41AFB9204008FA782 /* Info.plist */,
+				0992D0DC21BFA32400578786 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -232,6 +238,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
@@ -250,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				0992D0DA21BFA32400578786 /* InfoPlist.strings in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
@@ -358,10 +366,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		0992D0DC21BFA32400578786 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0992D0DB21BFA32400578786 /* en */,
+				0992D0DF21BFA35E00578786 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				607FACDA1AFB9204008FA782 /* Base */,
+				0992D0DD21BFA35D00578786 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -370,6 +388,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				607FACDF1AFB9204008FA782 /* Base */,
+				0992D0DE21BFA35E00578786 /* zh-Hans */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

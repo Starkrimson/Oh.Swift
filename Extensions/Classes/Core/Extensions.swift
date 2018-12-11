@@ -599,7 +599,11 @@ public extension Extensions where Base: UIScreen {
 extension Bundle: ExtensionsCompatible { }
 public extension Extensions where Base: Bundle {
     
-    static var displayName: String { return Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String ?? "" }
+    static var displayName: String {
+        return Bundle.main.localizedInfoDictionary?["CFBundleDisplayName"] as? String
+                ?? Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String
+                ?? ""
+    }
     static var marketingVersion: String { return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "" }
     static var buildVersion: String { return Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "" }
     
@@ -616,5 +620,23 @@ public extension Extensions where Base: UIApplication {
         } else {
             UIApplication.shared.openURL(settingsURL)
         }
+    }
+}
+
+extension Sequence where Element: Hashable {
+    
+    /// Removing duplicate elements and keep origin order
+    ///
+    /// - Returns: [Element]
+    func unique() -> [Element] {
+        var seen: Set<Element> = []
+        return filter({ (element) -> Bool in
+            if seen.contains(element) {
+                return false
+            } else {
+                seen.insert(element)
+                return true
+            }
+        })
     }
 }
