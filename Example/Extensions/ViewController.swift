@@ -36,8 +36,9 @@ class ViewController: UIViewController {
         paragraph.alignment = .left
         paragraph.lineBreakMode = .byTruncatingTail
         
-        label.attributedText = NSAttributedString.ex.attributedString(string: "Hello", font: UIFont.boldSystemFont(ofSize: 50), color: .purple, attributes: [.paragraphStyle: paragraph])
-        
+        label.attributedText = NSAttributedString.ex.attributedString(string: "Hello\n\(Calendar.ex.rangeOfTodayTimeInterval)", font: UIFont.boldSystemFont(ofSize: 50), color: .purple, attributes: [.paragraphStyle: paragraph])
+        label.numberOfLines = 0
+
         registerDebug()
         if #available(iOS 11.0, *) {
             label.backgroundColor = .yellow

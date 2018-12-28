@@ -431,6 +431,15 @@ public extension Extensions where Base == Date {
     }
 }
 
+extension Calendar: ExtensionsCompatible { }
+public extension Extensions where Base == Calendar {
+    
+    static var rangeOfTodayTimeInterval: Range<TimeInterval> {
+        let startOfToday = Calendar.current.startOfDay(for: Date())
+        return startOfToday.timeIntervalSinceReferenceDate..<startOfToday.timeIntervalSinceReferenceDate + 86400.0 // 24 * 60 * 60
+    }
+}
+
 extension UIButton: ExtensionsCompatible { }
 public extension Extensions where Base: UIButton {
     
