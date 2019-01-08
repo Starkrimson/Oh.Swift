@@ -8,17 +8,17 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Extensions'
-  s.version          = '0.11.0'
+  s.version          = '0.11.1'
   s.summary          = 'Swift Extensions.'
   s.description      = <<-DESC 
     My own Swift extensions 
   DESC
 
-  s.homepage         = 'https://source.developers.google.com/p/starkrimsonx/r/Extensions'
+  s.homepage         = 'git@github.com:Starkrimson/Extensions.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Starkrimson' => 'starkrimson@icloud.com' }
-  s.source           = { :git => 'https://source.developers.google.com/p/starkrimsonx/r/Extensions', :tag => s.version }
+  s.source           = { :git => 'git@github.com:Starkrimson/Extensions.git', :tag => s.version }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
