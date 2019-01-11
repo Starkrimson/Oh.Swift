@@ -429,14 +429,43 @@ public extension Extensions where Base == Date {
         }
         return date
     }
-}
-
-extension Calendar: ExtensionsCompatible { }
-public extension Extensions where Base == Calendar {
     
-    static var rangeOfTodayTimeInterval: Range<TimeInterval> {
-        let startOfToday = Calendar.current.startOfDay(for: Date())
-        return startOfToday.timeIntervalSinceReferenceDate..<startOfToday.timeIntervalSinceReferenceDate + 86400.0 // 24 * 60 * 60
+    enum DateStringFormat {
+        case HHmm       // 12:34
+        case MMMMyyyy   // January 2019
+        case EEEE       // Tuesday
+        case EMMMdd     // Wed Jan 09
+    }
+    
+    func string(_ dateFormat: DateStringFormat) -> String {
+        let dateFormatter = DateFormatter()
+        switch dateFormat {
+        case .HHmm:
+            dateFormatter.dateFormat = "HH:mm"
+        case .MMMMyyyy:
+            dateFormatter.dateFormat = "MMMM yyyy"
+        case .EEEE:
+            dateFormatter.dateFormat = "EEEE"
+        case .EMMMdd:
+            dateFormatter.dateFormat = "E MMM dd"
+        }
+        return dateFormatter.string(from: base)
+    }
+    
+    func string(_ dateFormat: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        return dateFormatter.string(from: base)
+    }
+    
+    var isInToday: Bool {
+        return Calendar.current.isDateInToday(base)
+    }
+    
+    @available(OSX 10.12, iOS 10.0, tvOS 10.0, watchOS 3.0, *)
+    var isInThisWeek: Bool {
+        guard let dateInterval = Calendar.current.dateInterval(of: .weekOfMonth, for: Date()) else { return false }
+        return dateInterval.contains(base)
     }
 }
 

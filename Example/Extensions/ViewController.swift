@@ -36,20 +36,22 @@ class ViewController: UIViewController {
         paragraph.alignment = .left
         paragraph.lineBreakMode = .byTruncatingTail
         
-        label.attributedText = NSAttributedString.ex.attributedString(string: "Hello\n\(Calendar.ex.rangeOfTodayTimeInterval)", font: UIFont.boldSystemFont(ofSize: 50), color: .purple, attributes: [.paragraphStyle: paragraph])
+        label.attributedText = NSAttributedString.ex.attributedString(string: "Hello\n\(Date().addingTimeInterval(88640).ex.isInToday)", font: UIFont.boldSystemFont(ofSize: 50), color: .purple, attributes: [.paragraphStyle: paragraph])
         label.numberOfLines = 0
 
         registerDebug()
         if #available(iOS 11.0, *) {
             label.backgroundColor = .yellow
             label.ex.makeSafeAreaContraints(offset: .init(top: 50, left: 50, bottom: 50, right: 50))
+            debugLog(Date().addingTimeInterval(88640 * 7).ex.isInThisWeek)
         } else {
             // Fallback on earlier versions
         }
         
-        debugLog("hello")
-        debugLog([1, 2, 3])
-        debugLog(label)
+        debugLog(Date().ex.string(.HHmm))
+        debugLog(Date().ex.string(.EEEE))
+        debugLog(Date().ex.string("MMMM yyyy"))
+        debugLog(Date().ex.string(.EMMMdd))
         
         title = Bundle.ex.displayName
     }
