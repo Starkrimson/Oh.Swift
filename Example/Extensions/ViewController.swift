@@ -48,16 +48,16 @@ class ViewController: UIViewController {
             // Fallback on earlier versions
         }
         
-        debugLog(Date().ex.string(.HHmm))
-        debugLog(Date().ex.string(.EEEE))
-        debugLog(Date().ex.string("MMMM yyyy"))
-        debugLog(Date().ex.string(.EMMMdd))
+        debugLog(Date().ex.string(.E))
+        debugLog(Date().ex.string(.EEEE, ",", "yyyy"))
         
         title = Bundle.ex.displayName
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        UIAlertController.ex.debugAlert("hehe")
+        let str = Date().ex.string(.yyyy)
+        let str2 = Date().ex.string(.EEEE, .comma, .MMMM, .yyyy)
+        UIAlertController.ex.debugAlert(str + "\n" + str2)
     }
     
     override func didReceiveMemoryWarning() {

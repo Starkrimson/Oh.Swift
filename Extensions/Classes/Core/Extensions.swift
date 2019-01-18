@@ -430,31 +430,43 @@ public extension Extensions where Base == Date {
         return date
     }
     
-    enum DateStringFormat {
-        case HHmm       // 12:34
-        case MMMMyyyy   // January 2019
-        case EEEE       // Tuesday
-        case EMMMdd     // Wed Jan 09
-    }
-    
-    func string(_ dateFormat: DateStringFormat) -> String {
-        let dateFormatter = DateFormatter()
-        switch dateFormat {
-        case .HHmm:
-            dateFormatter.dateFormat = "HH:mm"
-        case .MMMMyyyy:
-            dateFormatter.dateFormat = "MMMM yyyy"
-        case .EEEE:
-            dateFormatter.dateFormat = "EEEE"
-        case .EMMMdd:
-            dateFormatter.dateFormat = "E MMM dd"
+    public struct DateFormats: ExpressibleByStringLiteral {
+
+        let rawValue: String
+        
+        init(rawValue: String) {
+            self.rawValue = rawValue
         }
-        return dateFormatter.string(from: base)
+        
+        public init(stringLiteral value: String) {
+            rawValue = value
+        }
+        
+        /// ,
+        public static let comma: DateFormats = ","        
+        /// 12:34
+        public static let HHmm: DateFormats = "HH:mm"
+        /// January
+        public static let MMMM: DateFormats = "MMMM"
+        /// Jan
+        public static let MMM: DateFormats = "MMM"
+        /// 2019
+        public static let yyyy: DateFormats = "yyyy"
+        /// 09
+        public static let dd: DateFormats = "dd"
+        /// Tuesday
+        public static let EEEE: DateFormats = "EEEE"
+        /// Tue
+        public static let E: DateFormats = "E"
     }
     
-    func string(_ dateFormat: String) -> String {
+    func string(_ dateFormats: DateFormats...) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = dateFormat
+        dateFormatter.dateFormat = String(
+            dateFormats.reduce("") { $0 + " " + $1.rawValue }
+                .replacingOccurrences(of: " ,", with: ",")
+                .dropFirst()
+        )
         return dateFormatter.string(from: base)
     }
     
