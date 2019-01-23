@@ -460,13 +460,11 @@ public extension Extensions where Base == Date {
         public static let E: DateFormats = "E"
     }
     
-    func string(_ dateFormats: DateFormats...) -> String {
+    func string(_ localizedDateFormatFromTemplates: DateFormats...) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = String(
-            dateFormats.reduce("") { $0 + " " + $1.rawValue }
-                .replacingOccurrences(of: " ,", with: ",")
-                .dropFirst()
-        )
+        let template = localizedDateFormatFromTemplates.reduce(into: "") { $0 += $1.rawValue }
+        dateFormatter.locale = Locale(identifier: Locale.preferredLanguages.first ?? "en_US")
+        dateFormatter.setLocalizedDateFormatFromTemplate(template)
         return dateFormatter.string(from: base)
     }
     

@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         paragraph.alignment = .left
         paragraph.lineBreakMode = .byTruncatingTail
         
-        label.attributedText = NSAttributedString.ex.attributedString(string: "Hello\n\(Date().addingTimeInterval(88640).ex.isInToday)", font: UIFont.boldSystemFont(ofSize: 50), color: .purple, attributes: [.paragraphStyle: paragraph])
+//        label.attributedText = NSAttributedString.ex.attributedString(string: "Hello\n\(Date().addingTimeInterval(88640).ex.isInToday)", font: UIFont.boldSystemFont(ofSize: 50), color: .purple, attributes: [.paragraphStyle: paragraph])
         label.numberOfLines = 0
 
         registerDebug()
@@ -52,12 +52,26 @@ class ViewController: UIViewController {
         debugLog(Date().ex.string(.EEEE, ",", "yyyy"))
         
         title = Bundle.ex.displayName
+        
+        label.text = [DateFormatter.Style.none, .short, .medium, .long, .full].reduce("") { (result, style) -> String in
+            result + "\n" + ["zh_CN", "en_US", "ja_JP"].reduce("", { (result1, locale) -> String in
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = style
+                dateFormatter.locale = Locale(identifier: locale)
+                dateFormatter.setLocalizedDateFormatFromTemplate("dyMMMMHH:mmE") // // set template after setting locale
+                return result1 + "\n" + dateFormatter.string(from: Date().addingTimeInterval(86400 * 10))
+            })
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let str = Date().ex.string(.yyyy)
-        let str2 = Date().ex.string(.EEEE, .comma, .MMMM, .yyyy)
-        UIAlertController.ex.debugAlert(str + "\n" + str2)
+        let str2 = Date().ex.string(.EEEE, .MMMM, .yyyy)
+        let date = Date()
+        let str3 = date.ex.string(.EEEE, .dd, .MMMM)
+        let str4 = date.ex.string(.dd, .MMMM, "E")
+
+        UIAlertController.ex.debugAlert([str, str2, str3, str4, Locale.current.identifier, Locale.preferredLanguages[0]].reduce("", { $0 + "\n" + $1 }))
     }
     
     override func didReceiveMemoryWarning() {
