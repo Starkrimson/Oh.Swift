@@ -40,13 +40,7 @@ class ViewController: UIViewController {
         label.numberOfLines = 0
 
         registerDebug()
-        if #available(iOS 11.0, *) {
-            label.backgroundColor = .yellow
-            label.ex.makeSafeAreaContraints(offset: .init(top: 50, left: 50, bottom: 50, right: 50))
-            debugLog(Date().addingTimeInterval(88640 * 7).ex.isInThisWeek)
-        } else {
-            // Fallback on earlier versions
-        }
+        label.center = view.center
         
         debugLog(Date().ex.string(.E))
         debugLog(Date().ex.string(.EEEE, ",", "yyyy"))

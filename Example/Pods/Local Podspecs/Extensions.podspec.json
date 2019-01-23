@@ -1,6 +1,6 @@
 {
   "name": "Extensions",
-  "version": "0.12.2",
+  "version": "0.12.3",
   "summary": "Swift Extensions.",
   "description": "My own Swift extensions",
   "homepage": "git@github.com:Starkrimson/Extensions.git",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "git@github.com:Starkrimson/Extensions.git",
-    "tag": "0.12.2"
+    "tag": "0.12.3"
   },
   "platforms": {
     "ios": "8.0"
@@ -43,18 +43,6 @@
           "~> 4.0"
         ],
         "RxCocoa": [
-          "~> 4.0"
-        ]
-      }
-    },
-    {
-      "name": "Snp",
-      "source_files": "Extensions/Classes/Snp/**/*",
-      "dependencies": {
-        "Extensions/Core": [
-
-        ],
-        "SnapKit": [
           "~> 4.0"
         ]
       }

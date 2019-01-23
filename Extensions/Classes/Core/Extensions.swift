@@ -442,8 +442,6 @@ public extension Extensions where Base == Date {
             rawValue = value
         }
         
-        /// ,
-        public static let comma: DateFormats = ","        
         /// 12:34
         public static let HHmm: DateFormats = "HH:mm"
         /// January

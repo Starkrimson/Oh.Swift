@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Extensions'
-  s.version          = '0.12.2'
+  s.version          = '0.12.3'
   s.summary          = 'Swift Extensions.'
   s.description      = <<-DESC 
     My own Swift extensions 
@@ -38,11 +38,5 @@ Pod::Spec.new do |s|
     rx.dependency 'Extensions/Core'
     rx.dependency 'RxSwift', '~> 4.0'
     rx.dependency 'RxCocoa', '~> 4.0'
-  end
-
-  s.subspec 'Snp' do |snp|
-    snp.source_files = 'Extensions/Classes/Snp/**/*'
-    snp.dependency 'Extensions/Core'
-    snp.dependency 'SnapKit', '~> 4.0'
   end
 end
