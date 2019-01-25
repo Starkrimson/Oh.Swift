@@ -458,10 +458,10 @@ public extension Extensions where Base == Date {
         public static let E: DateFormats = "E"
     }
     
-    func string(_ localizedDateFormatFromTemplates: DateFormats...) -> String {
+    func string(_ localizedDateFormatFromTemplates: DateFormats..., locale identifier: String? = Locale.preferredLanguages.first) -> String {
         let dateFormatter = DateFormatter()
         let template = localizedDateFormatFromTemplates.reduce(into: "") { $0 += $1.rawValue }
-        dateFormatter.locale = Locale(identifier: Locale.preferredLanguages.first ?? "en_US")
+        dateFormatter.locale = Locale(identifier: identifier ?? "en_US")
         dateFormatter.setLocalizedDateFormatFromTemplate(template)
         return dateFormatter.string(from: base)
     }

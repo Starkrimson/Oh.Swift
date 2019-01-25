@@ -47,15 +47,23 @@ class ViewController: UIViewController {
         
         title = Bundle.ex.displayName
         
-        label.text = [DateFormatter.Style.none, .short, .medium, .long, .full].reduce("") { (result, style) -> String in
-            result + "\n" + ["zh_CN", "en_US", "ja_JP"].reduce("", { (result1, locale) -> String in
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateStyle = style
-                dateFormatter.locale = Locale(identifier: locale)
-                dateFormatter.setLocalizedDateFormatFromTemplate("dyMMMMHH:mmE") // // set template after setting locale
-                return result1 + "\n" + dateFormatter.string(from: Date().addingTimeInterval(86400 * 10))
+        let dateFormats: [Extensions<Date>.DateFormats] = [.HHmm, "MMMMddyyyyHH:mm", "EEdd", "MMMddEE"]
+        label.text = //[DateFormatter.Style.none, .short, .medium, .long, .full]
+            dateFormats.reduce("") { (result, style) -> String in
+            result + "\n" +
+            ["zh_CN", "en_US", "ja_JP"].reduce("", { (result1, locale) -> String in
+//                let dateFormatter = DateFormatter()
+//                dateFormatter.dateStyle = style
+//                dateFormatter.locale = Locale(identifier: locale)
+//                dateFormatter.setLocalizedDateFormatFromTemplate("dyMMMMHH:mmE") // // set template after setting locale
+                
+                let date = Date()
+                let str = date.ex.string(style, "zzz", locale: locale)
+                
+                return result1 + "\n" + str//dateFormatter.string(from: Date().addingTimeInterval(86400 * 10))
             })
         }
+        label.sizeToFit()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
