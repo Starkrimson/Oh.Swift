@@ -1,6 +1,6 @@
 {
   "name": "Extensions",
-  "version": "0.12.4",
+  "version": "0.13.0",
   "summary": "Swift Extensions.",
   "description": "My own Swift extensions",
   "homepage": "git@github.com:Starkrimson/Extensions.git",
@@ -13,13 +13,13 @@
   },
   "source": {
     "git": "git@github.com:Starkrimson/Extensions.git",
-    "tag": "0.12.4"
+    "tag": "0.13.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "10.0"
   },
   "pod_target_xcconfig": {
-    "SWIFT_VERSION": "4.2"
+    "SWIFT_VERSION": "5"
   },
   "default_subspecs": "Core",
   "subspecs": [
@@ -40,10 +40,10 @@
 
         ],
         "RxSwift": [
-          "~> 4.0"
+          "~> 5"
         ],
         "RxCocoa": [
-          "~> 4.0"
+          "~> 5"
         ]
       }
     }

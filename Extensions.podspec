@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Extensions'
-  s.version          = '0.12.4'
+  s.version          = '0.13.0'
   s.summary          = 'Swift Extensions.'
   s.description      = <<-DESC 
     My own Swift extensions 
@@ -21,8 +21,8 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'git@github.com:Starkrimson/Extensions.git', :tag => s.version }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
-  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.2' }
+  s.ios.deployment_target = '10.0'
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5' }
   
   s.default_subspec = 'Core'
 
@@ -36,7 +36,7 @@ Pod::Spec.new do |s|
   s.subspec 'Rx' do |rx|
     rx.source_files = 'Extensions/Classes/Rx/**/*'
     rx.dependency 'Extensions/Core'
-    rx.dependency 'RxSwift', '~> 4.0'
-    rx.dependency 'RxCocoa', '~> 4.0'
+    rx.dependency 'RxSwift', '~> 5'
+    rx.dependency 'RxCocoa', '~> 5'
   end
 end

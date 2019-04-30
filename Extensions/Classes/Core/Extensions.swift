@@ -1,3 +1,4 @@
+
 public struct Extensions<Base> {
     internal let base: Base
     internal init(_ base: Base) {
@@ -31,37 +32,48 @@ extension ExtensionsCompatible {
     }
 }
 
-public protocol StateType { }
-public protocol ActionType { }
-public protocol CommandType { }
+extension NSObject: ExtensionsCompatible { }
 
-public class Store<S: StateType, A: ActionType, C: CommandType> {
-    let reducer: (_ state: S, _ action: A) -> (S, C?)
-    var subscriber: ((_ state: S, _ previousState: S, _ command: C?) -> Void)?
-    var state: S
+public extension Extensions where Base: NSObject {
     
-    init(reducer: @escaping (S, A) -> (S, C?), initialState: S) {
-        self.reducer = reducer
-        self.state = initialState
+    enum POStyle: String {
+        case normal = "", warning = "⚠️", error = "❗️"
     }
     
-    func dispatch(_ action: A) {
-        let previousState = state
-        let (newState, command) = reducer(previousState, action)
-        state = newState
-        subscriber?(state, previousState, command)
-    }
-    
-    func subscribe(_ handler: @escaping (S, S, C?) -> Void) {
-        self.subscriber = handler
-    }
-    
-    func unsubscribe() {
-        self.subscriber = nil
+    func po(_ items: Any...,
+        id: String? = nil,
+        style: POStyle = .normal,
+        file: String = #file, method: String = #function, line: Int = #line) {
+        #if DEBUG
+        func p(_ items: Any..., terminator: String = " ") {
+            items.forEach {
+                print($0, terminator: terminator)
+            }
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss.SSS:"
+        let dateString = dateFormatter.string(from: Date())
+        p(dateString)
+        
+        if let identifier = id {
+            p(identifier)
+        } else {
+            p("\((file as NSString).lastPathComponent):\(line).\(method)")
+        }
+        
+        if style != .normal {
+            p(style.rawValue)
+        }
+        
+        p("->")
+        items.forEach { p($0) }
+        print()
+        
+        #endif
     }
 }
 
-extension UIColor: ExtensionsCompatible { }
 public extension Extensions where Base: UIColor {
     
     static var darkBlue: UIColor {
@@ -106,7 +118,6 @@ public extension Extensions where Base: UIColor {
     }
 }
 
-extension UIImage: ExtensionsCompatible { }
 public extension Extensions where Base: UIImage {
     
     /// 绘制圆角图片
@@ -196,7 +207,6 @@ public extension Extensions where Base: UIImage {
     }
 }
 
-extension NSAttributedString: ExtensionsCompatible { }
 public extension Extensions where Base: NSAttributedString {
     
     static func attributedString(string: String?, fontSize size: CGFloat, color: UIColor?) -> NSAttributedString? {
@@ -316,8 +326,8 @@ public extension Extensions where Base == String {
             arr.contains(base)
         }
         guard let sectionValue = sectionOfOptions.first,
-            let section = options.index(where: {$0 == sectionValue}),
-            let row = sectionValue.index(where: {$0 == base})
+            let section = options.firstIndex(where: {$0 == sectionValue}),
+            let row = sectionValue.firstIndex(where: {$0 == base})
             else {
                 return nil
         }
@@ -430,7 +440,7 @@ public extension Extensions where Base == Date {
         return date
     }
     
-    public struct DateFormats: ExpressibleByStringLiteral {
+    struct DateFormats: ExpressibleByStringLiteral {
 
         let rawValue: String
         
@@ -477,7 +487,6 @@ public extension Extensions where Base == Date {
     }
 }
 
-extension UIButton: ExtensionsCompatible { }
 public extension Extensions where Base: UIButton {
     
     static func create(title: String?, fontSize: CGFloat = 14, normalColor: UIColor? = .black, highlightedColor: UIColor? = nil, backgroundImage: UIImage? = nil, backgroundColor: UIColor? = nil, moveTo superView: UIView? = nil, moreSetter: ((_ button: UIButton)->())? = nil) -> UIButton {
@@ -511,7 +520,6 @@ public extension Extensions where Base: UIButton {
     }
 }
 
-extension UILabel: ExtensionsCompatible { }
 public extension Extensions where Base: UILabel {
     
     static func create(_ text: String, alignment: NSTextAlignment = .center, textColor: UIColor = .black, font: UIFont, lines: Int = 0, moveTo superView: UIView? = nil, moreSetter: ((_ label: UILabel)->())? = nil) -> UILabel {
@@ -533,7 +541,6 @@ public extension Extensions where Base: UILabel {
     }
 }
 
-extension UIImageView: ExtensionsCompatible { }
 public extension Extensions where Base: UIImageView {
     
     func setImage(_ image: UIImage, color: UIColor? = nil, contentMode: UIView.ContentMode = .scaleAspectFit) {
@@ -577,7 +584,6 @@ public extension Extensions where Base: UIImageView {
     }
 }
 
-extension UIAlertController: ExtensionsCompatible { }
 public extension Extensions where Base: UIAlertController {
     
     static func present(title: String?, message: String?, preferredStyle: UIAlertController.Style, cancel: String = "cancel", cancelHandler: ((UIAlertAction)->Void)? = nil, position: CGPoint? = nil, actions: [UIAlertAction], moreSetter: ((_ alert: UIAlertController)->())? = nil) {
@@ -620,7 +626,6 @@ public extension Extensions where Base: UIAlertController {
     }
 }
 
-extension UIScreen: ExtensionsCompatible { }
 public extension Extensions where Base: UIScreen {
     
     static var portraitWidth: CGFloat {
@@ -642,7 +647,6 @@ public extension Extensions where Base: UIScreen {
     }
 }
 
-extension Bundle: ExtensionsCompatible { }
 public extension Extensions where Base: Bundle {
     
     static var displayName: String {
@@ -656,7 +660,6 @@ public extension Extensions where Base: Bundle {
     static var documentDirectory: String { return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] }
 }
 
-extension UIApplication: ExtensionsCompatible { }
 public extension Extensions where Base: UIApplication {
     
     static func openSettings() {

@@ -18,7 +18,7 @@ public class Delegate<Input, Output> {
 }
 
 public extension Delegate where Input == Void {
-    public func call() -> Output? {
+    func call() -> Output? {
         return call(())
     }
 }
