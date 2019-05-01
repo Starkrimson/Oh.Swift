@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Extensions'
-  s.version          = '0.13.2'
+  s.version          = '0.14.0'
   s.summary          = 'Swift Extensions.'
   s.description      = <<-DESC 
     My own Swift extensions 
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
-  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.2' }
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5' }
   
   s.default_subspec = 'Core'
 
@@ -38,5 +38,11 @@ Pod::Spec.new do |s|
     rx.dependency 'Extensions/Core'
     rx.dependency 'RxSwift', '~> 4.0'
     rx.dependency 'RxCocoa', '~> 4.0'
+  end
+  
+  s.subspec 'MDC' do |mdc|
+      mdc.source_files = 'Extensions/Classes/MDC/**/*'
+      mdc.dependency 'Extensions/Core'
+      mdc.dependency 'MaterialComponents/Snackbar', '~> 83.0'
   end
 end

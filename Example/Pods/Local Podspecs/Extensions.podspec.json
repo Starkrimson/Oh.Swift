@@ -1,6 +1,6 @@
 {
   "name": "Extensions",
-  "version": "0.13.2",
+  "version": "0.14.0",
   "summary": "Swift Extensions.",
   "description": "My own Swift extensions",
   "homepage": "git@github.com:Starkrimson/Extensions.git",
@@ -13,13 +13,13 @@
   },
   "source": {
     "git": "git@github.com:Starkrimson/Extensions.git",
-    "tag": "0.13.2"
+    "tag": "0.14.0"
   },
   "platforms": {
     "ios": "10.0"
   },
   "pod_target_xcconfig": {
-    "SWIFT_VERSION": "4.2"
+    "SWIFT_VERSION": "5"
   },
   "default_subspecs": "Core",
   "subspecs": [
@@ -44,6 +44,18 @@
         ],
         "RxCocoa": [
           "~> 4.0"
+        ]
+      }
+    },
+    {
+      "name": "MDC",
+      "source_files": "Extensions/Classes/MDC/**/*",
+      "dependencies": {
+        "Extensions/Core": [
+
+        ],
+        "MaterialComponents/Snackbar": [
+          "~> 83.0"
         ]
       }
     }

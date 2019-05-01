@@ -13,22 +13,14 @@ import RxSwift
 class ViewController: UIViewController {
     
     override func viewDidLoad() {
-        ex.po("123", "po", "abc")
-        ex.po("123", "po", "abc", id: "debug", style: .warning)
-        ex.po("123", "po", "abc", id: "po", style: .error)
-        ex.po("abc", self, id: "hehe")
         
-        debugLog("hello")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let str = Date().ex.string(.yyyy)
-        let str2 = Date().ex.string(.EEEE, .MMMM, .yyyy)
-        let date = Date()
-        let str3 = date.ex.string(.EEEE, .dd, .MMMM)
-        let str4 = date.ex.string(.dd, .MMMM, "E")
-
-        UIAlertController.ex.debugAlert([str, str2, str3, str4, Locale.current.identifier, Locale.preferredLanguages[0]].reduce("", { $0 + "\n" + $1 }))
+        ex.po("xixi")
+        ex.snack(text: "Copyright (c) 2018 Xujx. All rights reserved.", action: ("Save", {
+            self.ex.po("Copyright")
+        }))
     }
     
     override func didReceiveMemoryWarning() {

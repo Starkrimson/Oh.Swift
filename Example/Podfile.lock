@@ -1,18 +1,67 @@
 PODS:
-  - Extensions/Core (0.13.2)
-  - Extensions/Rx (0.13.2):
+  - Extensions/Core (0.14.0)
+  - Extensions/MDC (0.14.0):
+    - Extensions/Core
+    - MaterialComponents/Snackbar (~> 83.0)
+  - Extensions/Rx (0.14.0):
     - Extensions/Core
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
+  - MaterialComponents/AnimationTiming (83.0.1)
+  - MaterialComponents/Buttons (83.0.1):
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Math
+    - MaterialComponents/Ripple
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Shapes
+    - MaterialComponents/Typography
+    - MDFInternationalization
+    - MDFTextAccessibility
+  - MaterialComponents/Ink (83.0.1):
+    - MaterialComponents/private/Math
+  - MaterialComponents/OverlayWindow (83.0.1):
+    - MaterialComponents/private/Application
+  - MaterialComponents/private/Application (83.0.1)
+  - MaterialComponents/private/KeyboardWatcher (83.0.1):
+    - MaterialComponents/private/Application
+  - MaterialComponents/private/Math (83.0.1)
+  - MaterialComponents/private/Overlay (83.0.1)
+  - MaterialComponents/Ripple (83.0.1):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/private/Math
+  - MaterialComponents/ShadowElevations (83.0.1)
+  - MaterialComponents/ShadowLayer (83.0.1):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/Shapes (83.0.1):
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowLayer
+  - MaterialComponents/Snackbar (83.0.1):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Buttons
+    - MaterialComponents/OverlayWindow
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/KeyboardWatcher
+    - MaterialComponents/private/Overlay
+    - MaterialComponents/Typography
+  - MaterialComponents/Typography (83.0.1):
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/Math
+  - MDFInternationalization (2.0.0)
+  - MDFTextAccessibility (2.0.0)
   - RxCocoa (4.5.0):
     - RxSwift (>= 4.4.2, ~> 4.4)
   - RxSwift (4.5.0)
 
 DEPENDENCIES:
+  - Extensions/MDC (from `../`)
   - Extensions/Rx (from `../`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - MaterialComponents
+    - MDFInternationalization
+    - MDFTextAccessibility
     - RxCocoa
     - RxSwift
 
@@ -21,10 +70,13 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Extensions: a01b37dbf8008ebbe79cc96544db8afdbefd4496
+  Extensions: dc53813efaba3abf24c5d2d7951196d2b8e012c2
+  MaterialComponents: 2363f5dab79a96d3958e6aaf49ec116e102d23dc
+  MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
+  MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
 
-PODFILE CHECKSUM: 29b9cb668fbaeb9b0f3bcad91e1dbc1d19cbd525
+PODFILE CHECKSUM: efd96912a02430d56d6f9b53f2a82707d471a0cd
 
 COCOAPODS: 1.6.1
