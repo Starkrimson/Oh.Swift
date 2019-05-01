@@ -9,6 +9,7 @@
 import UIKit
 import Extensions
 import RxSwift
+import MaterialComponents
 
 class ViewController: UIViewController {
     
@@ -17,10 +18,31 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        ex.po("xixi")
-        ex.snack(text: "Copyright (c) 2018 Xujx. All rights reserved.", action: ("Save", {
-            self.ex.po("Copyright")
-        }))
+        DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+            self.snack(text: "copyright", style: .normal, action: ("点我", {
+                self.ex.po("tapped")
+            })) { _ in
+                self.ex.po("completed")
+            }
+        }
+    }
+    
+    typealias SnackAction = (title: String, handler: ()->())
+    func snack(text: String, style: Extensions<NSObject>.POStyle = .normal, action: SnackAction? = nil, completionHandler: ((Bool) -> ())? = nil) {
+        let msg = style == .normal ? text : "\(style.rawValue) \(text)"
+        let message = MDCSnackbarMessage(text: msg)
+        let messageAction = MDCSnackbarMessageAction()
+        messageAction.title = action?.title
+        messageAction.handler = action?.handler
+        message.action = messageAction
+        MDCSnackbarManager.setButtonTitleColor(UIColor.ex.hex(0x7BBD5D), for: .normal)
+        
+        message.completionHandler = completionHandler
+        
+        DispatchQueue.main.async {
+            MDCSnackbarManager.show(message)
+        }
+        ex.po(msg, id: "Snack")
     }
     
     override func didReceiveMemoryWarning() {

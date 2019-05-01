@@ -2,17 +2,21 @@ import MaterialComponents
 
 public extension Extensions where Base: NSObject {
     
-    typealias Action = (title: String, handler: ()->())
-    func snack(text: String, action: Action? = nil) {
+    typealias SnackAction = (title: String, handler: ()->())
+    func snack(text: String, style: POStyle = .normal, action: SnackAction? = nil, completionHandler: ((Bool) -> ())? = nil) {
+        let msg = style == .normal ? text : "\(style.rawValue) \(text)"
+        let message = MDCSnackbarMessage(text: msg)
+        let messageAction = MDCSnackbarMessageAction()
+        messageAction.title = action?.title
+        messageAction.handler = action?.handler
+        message.action = messageAction
+        MDCSnackbarManager.setButtonTitleColor(UIColor.ex.hex(0x7BBD5D), for: .normal)
+        
+        message.completionHandler = completionHandler
+        
         DispatchQueue.main.async {
-            let message = MDCSnackbarMessage(text: text)
-            let messageAction = MDCSnackbarMessageAction()
-            messageAction.title = action?.title
-            messageAction.handler = action?.handler
-            message.action = messageAction
-            MDCSnackbarManager.setButtonTitleColor(UIColor.ex.hex(0x7BBD5D), for: .normal)
             MDCSnackbarManager.show(message)
         }
-        po(text, id: "Snack")
+        po(msg, id: "Snack")
     }
 }
