@@ -653,3 +653,30 @@ extension Sequence where Element: Hashable {
         })
     }
 }
+
+extension Notification: ExtensionsCompatible { }
+public extension Extensions where Base == Notification {
+    
+    struct UserInfoKey<ValueType>: Hashable {
+        let key: String
+        
+        public init(key: String) {
+            self.key = key
+        }
+    }
+    
+    func getUserInfo<T>(for key: Extensions.UserInfoKey<T>) -> T {
+        return base.userInfo![key] as! T
+    }
+}
+
+public extension Extensions where Base: NotificationCenter {
+    
+    func post<T>(name aName: NSNotification.Name, object anObject: Any? = nil, typedUserInfo aUserInfo: [Extensions<Notification>.UserInfoKey<T> : T]? = nil) {
+        base.post(name: aName, object: anObject, userInfo: aUserInfo)
+    }
+    
+    static func post<T>(name aName: NSNotification.Name, object anObject: Any? = nil, typedUserInfo aUserInfo: [Extensions<Notification>.UserInfoKey<T> : T]? = nil) {
+        Base.default.post(name: aName, object: anObject, userInfo: aUserInfo)
+    }
+}
