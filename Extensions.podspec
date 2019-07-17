@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Extensions'
-  s.version          = '0.16.0'
+  s.version          = '0.17.0'
   s.summary          = 'Swift Extensions.'
   s.description      = <<-DESC 
     My own Swift extensions 
@@ -36,8 +36,8 @@ Pod::Spec.new do |s|
   s.subspec 'Rx' do |rx|
     rx.source_files = 'Extensions/Classes/Rx/**/*'
     rx.dependency 'Extensions/Core'
-    rx.dependency 'RxSwift', '~> 4.0'
-    rx.dependency 'RxCocoa', '~> 4.0'
+    rx.dependency 'RxSwift', '~> 5.0'
+    rx.dependency 'RxCocoa', '~> 5.0'
   end
   
   s.subspec 'MDC' do |mdc|

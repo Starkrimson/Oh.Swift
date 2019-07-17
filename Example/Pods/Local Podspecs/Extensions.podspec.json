@@ -1,6 +1,6 @@
 {
   "name": "Extensions",
-  "version": "0.16.0",
+  "version": "0.17.0",
   "summary": "Swift Extensions.",
   "description": "My own Swift extensions",
   "homepage": "git@github.com:Starkrimson/Extensions.git",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "git@github.com:Starkrimson/Extensions.git",
-    "tag": "0.16.0"
+    "tag": "0.17.0"
   },
   "platforms": {
     "ios": "10.0"
@@ -40,10 +40,10 @@
 
         ],
         "RxSwift": [
-          "~> 4.0"
+          "~> 5.0"
         ],
         "RxCocoa": [
-          "~> 4.0"
+          "~> 5.0"
         ]
       }
     },

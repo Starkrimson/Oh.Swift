@@ -1,12 +1,12 @@
 PODS:
-  - Extensions/Core (0.16.0)
-  - Extensions/MDC (0.16.0):
+  - Extensions/Core (0.17.0)
+  - Extensions/MDC (0.17.0):
     - Extensions/Core
     - MaterialComponents/Snackbar (~> 83.0)
-  - Extensions/Rx (0.16.0):
+  - Extensions/Rx (0.17.0):
     - Extensions/Core
-    - RxCocoa (~> 4.0)
-    - RxSwift (~> 4.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
   - MaterialComponents/AnimationTiming (83.0.1)
   - MaterialComponents/Buttons (83.0.1):
     - MaterialComponents/Ink
@@ -49,9 +49,12 @@ PODS:
     - MaterialComponents/private/Math
   - MDFInternationalization (2.0.0)
   - MDFTextAccessibility (2.0.0)
-  - RxCocoa (4.5.0):
-    - RxSwift (>= 4.4.2, ~> 4.4)
-  - RxSwift (4.5.0)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
 
 DEPENDENCIES:
   - Extensions/MDC (from `../`)
@@ -63,6 +66,7 @@ SPEC REPOS:
     - MDFInternationalization
     - MDFTextAccessibility
     - RxCocoa
+    - RxRelay
     - RxSwift
 
 EXTERNAL SOURCES:
@@ -70,12 +74,13 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Extensions: f4f312978057d85e1a37c54a985f24668a95c9c1
+  Extensions: 51ae8a555db5bd5c3fcd5361bbff4b9077c97cbc
   MaterialComponents: 2363f5dab79a96d3958e6aaf49ec116e102d23dc
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
-  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
-  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
 
 PODFILE CHECKSUM: efd96912a02430d56d6f9b53f2a82707d471a0cd
 

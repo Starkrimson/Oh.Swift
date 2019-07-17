@@ -66,7 +66,7 @@ public extension Reactive where Base: UITableView {
         -> (_ source: O)
         -> (_ configureCell: @escaping (Int, S.Iterator.Element, Cell) -> Void)
         -> Disposable
-        where O.E == S {
+        where O.Element == S {
             let cellIdentifier = String(describing: type)
             return items(cellIdentifier: cellIdentifier, cellType: type)
     }
