@@ -15,6 +15,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         NotificationCenter.default.addObserver(self, selector: #selector(aNotificationReceived(sender:)), name: .aNotificationName, object: nil)
+        
+        let tableView = UITableView()
+
+         Observable.just([])
+            .bind(to: tableView.rx.items(cell: UITableViewCell.self)) { (row,element, cell) in
+                cell.textLabel?.text = "\(element) @ row \(row)"
+            }
+            .disposed(by: rx.disposeBag)
+
+        tableView.ex.register(UITableViewCell.self)
+        _ = tableView.ex.dequeue(UITableViewCell.self)
+        _ = ViewController.ex.instantiate()
     }
     
     @objc func aNotificationReceived(sender: Notification) {

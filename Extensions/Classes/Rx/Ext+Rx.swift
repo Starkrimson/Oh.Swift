@@ -32,9 +32,9 @@ extension Reactive where Base: AnyObject {
     }
 }
 
-extension Reactive where Base: UITableView {
+public extension Reactive where Base: UITableView {
 
-    public func modelSelectedAtIndexPath<T>(_ modelType: T.Type) -> ControlEvent<(T, IndexPath)> {
+    func modelSelectedAtIndexPath<T>(_ modelType: T.Type) -> ControlEvent<(T, IndexPath)> {
         let source: Observable<(T, IndexPath)> = self.itemSelected.flatMap { [weak view = self.base as UITableView] indexPath -> Observable<(T, IndexPath)> in
             guard let view = view else {
                 return Observable.empty()
@@ -44,5 +44,30 @@ extension Reactive where Base: UITableView {
         }
 
         return ControlEvent(events: source)
+    }
+    
+    /**
+    Example:
+    
+        let items = Observable.just([
+            "First Item",
+            "Second Item",
+            "Third Item"
+        ])
+    
+        items
+            .bind(to: tableView.rx.items(cell: UITableViewCell.self)) { (row,element, cell) in
+                cell.textLabel?.text = "\(element) @ row \(row)"
+            }
+            .disposed(by: rx.disposeBag)
+    */
+    func items<S: Sequence, Cell: UITableViewCell, O : ObservableType>
+        (cell type: Cell.Type = Cell.self)
+        -> (_ source: O)
+        -> (_ configureCell: @escaping (Int, S.Iterator.Element, Cell) -> Void)
+        -> Disposable
+        where O.E == S {
+            let cellIdentifier = String(describing: type)
+            return items(cellIdentifier: cellIdentifier, cellType: type)
     }
 }

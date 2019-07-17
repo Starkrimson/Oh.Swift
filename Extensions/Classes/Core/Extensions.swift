@@ -680,3 +680,41 @@ public extension Extensions where Base: NotificationCenter {
         Base.default.post(name: aName, object: anObject, userInfo: aUserInfo)
     }
 }
+
+public extension Extensions where Base: UITableView {
+    
+    func register<T: UITableViewCell>(nib aClass: T.Type) {
+        let name = String(describing: aClass)
+        let nib = UINib(nibName: name, bundle: nil)
+        base.register(nib, forCellReuseIdentifier: name)
+    }
+    
+    func register<T: UITableViewCell>(_ aClass: T.Type) {
+        let name = String(describing: aClass)
+        base.register(aClass, forCellReuseIdentifier: name)
+    }
+    
+    func dequeue<T: UITableViewCell>(_ reusableCell: T.Type) -> T {
+        let name = String(describing: reusableCell)
+        guard let cell = base.dequeueReusableCell(withIdentifier: name) as? T else {
+            fatalError("\(name) is not registed")
+        }
+        return cell
+    }
+}
+
+public extension Extensions where Base: UIViewController {
+    
+    static func instantiate(storyBoard: UIStoryboard = .main, identifier: String? = nil) -> Base {
+        let identifier = identifier ?? String(describing: self)
+        guard let viewController = storyBoard
+            .instantiateViewController(withIdentifier: identifier) as? Base else {
+                fatalError("View controller with identifier '\(identifier)' is not a type of \(self)")
+        }
+        return viewController
+    }
+}
+
+public extension UIStoryboard {
+    static let main = UIStoryboard(name: "Main", bundle: nil)
+}
