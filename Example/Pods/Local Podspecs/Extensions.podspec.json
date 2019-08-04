@@ -1,6 +1,6 @@
 {
   "name": "Extensions",
-  "version": "18.1",
+  "version": "18.2",
   "summary": "Swift Extensions.",
   "description": "My own Swift extensions",
   "homepage": "git@github.com:Starkrimson/Extensions.git",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "git@github.com:Starkrimson/Extensions.git",
-    "tag": "18.1"
+    "tag": "18.2"
   },
   "platforms": {
     "ios": "11.0"
