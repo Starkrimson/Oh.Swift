@@ -21,3 +21,8 @@ arr.ex.appending(3) // [1, 2, 3]
 let vc = UIViewController()
 vc.bag
 vc.rx.disposeBag
+
+let vcs = String(describing: UIViewController.ex.self)
+print(vcs)
+vcs.replacingOccurrences(of: "Extensions<", with: "")
+    .replacingOccurrences(of: ">", with: "")

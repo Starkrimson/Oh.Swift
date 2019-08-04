@@ -706,7 +706,10 @@ public extension Extensions where Base: UITableView {
 public extension Extensions where Base: UIViewController {
     
     static func instantiate(storyBoard: UIStoryboard = .main, identifier: String? = nil) -> Base {
-        let identifier = identifier ?? String(describing: self)
+        let identifier = identifier
+            ?? String(describing: self)
+            .replacingOccurrences(of: "Extensions<", with: "")
+            .replacingOccurrences(of: ">", with: "")
         guard let viewController = storyBoard
             .instantiateViewController(withIdentifier: identifier) as? Base else {
                 fatalError("View controller with identifier '\(identifier)' is not a type of \(self)")
