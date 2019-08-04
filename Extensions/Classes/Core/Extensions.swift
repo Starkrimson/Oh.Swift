@@ -718,3 +718,42 @@ public extension Extensions where Base: UIViewController {
 public extension UIStoryboard {
     static let main = UIStoryboard(name: "Main", bundle: nil)
 }
+
+extension Array: ExtensionsCompatible { }
+public extension Extensions where Base: RangeReplaceableCollection {
+    
+    func appending(_ newElement: Base.Element) -> Base {
+        return base + [newElement]
+    }
+    
+    func appending<S>(contentsOf newElements: S) -> Base
+        where S : Sequence, Base.Element == S.Element {
+        return base + newElements
+    }
+    
+    func inserting(_ newElement: Base.Element, at i: Base.Index) -> Base {
+        var newValue = base
+        newValue.insert(newElement, at: i)
+        return newValue
+    }
+    
+    func inserting<S>(contentsOf newElements: S, at i: Base.Index)  -> Base
+        where S : Collection, Base.Element == S.Element {
+        var newValue = base
+        newValue.insert(contentsOf: newElements, at: i)
+        return newValue
+    }
+    
+    func removing(at index: Base.Index) -> Base {
+        var newValue = base
+        newValue.remove(at: index)
+        return newValue
+    }
+    
+    func moving(at source: Base.Index, to destination: Base.Index) -> Base {
+        var newValue = base
+        let moved = newValue.remove(at: source)
+        newValue.insert(moved, at: destination)
+        return newValue
+    }
+}
