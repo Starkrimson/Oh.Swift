@@ -32,6 +32,35 @@ extension Reactive where Base: AnyObject {
     }
 }
 
+extension NSObject {
+    
+    private func synchroizedBag<T>(_ action: () -> T) -> T {
+        objc_sync_enter(self)
+        let result = action()
+        objc_sync_exit(self)
+        return result
+    }
+    
+    public var bag: DisposeBag {
+        get {
+            return synchroizedBag {
+                if let disposeObject = objc_getAssociatedObject(self, &disposeBagContext) as? DisposeBag {
+                    return disposeObject
+                }
+                let disposeObject = DisposeBag()
+                objc_setAssociatedObject(self, &disposeBagContext, disposeObject, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                return disposeObject
+            }
+        }
+        
+        set {
+            synchroizedBag {
+                objc_setAssociatedObject(self, &disposeBagContext, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            }
+        }
+    }
+}
+
 public extension Reactive where Base: UITableView {
 
     func modelSelectedAtIndexPath<T>(_ modelType: T.Type) -> ControlEvent<(T, IndexPath)> {
@@ -47,7 +76,6 @@ public extension Reactive where Base: UITableView {
     }
     
     /**
-    Example:
     
         let items = Observable.just([
             "First Item",

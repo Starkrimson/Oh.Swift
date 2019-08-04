@@ -17,3 +17,7 @@ arr.ex.appending(3) // [1, 2, 3]
 //    .ex.inserted(9, at: 20) // Fatal error: Array index is out of range
     .ex.removing(at: 0) // [8, 6, 1, 2, 3, 4, 5]
     .ex.moving(at: 3, to: 0) // [2, 8, 6, 1, 3, 4, 5]
+
+let vc = UIViewController()
+vc.bag
+vc.rx.disposeBag
