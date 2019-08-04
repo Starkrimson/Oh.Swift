@@ -26,3 +26,5 @@ let vcs = String(describing: UIViewController.ex.self)
 print(vcs)
 vcs.replacingOccurrences(of: "Extensions<", with: "")
     .replacingOccurrences(of: ">", with: "")
+[1,2,4,2,3].ex.unique()
+

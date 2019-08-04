@@ -636,14 +636,14 @@ public extension Extensions where Base: UIApplication {
     }
 }
 
-extension Sequence where Element: Hashable {
+public extension Extensions where Base: Sequence {
     
     /// Removing duplicate elements and keep origin order
     ///
     /// - Returns: [Element]
-    func unique() -> [Element] {
+    func unique<Element>() -> [Element] where Base.Element == Element, Element: Hashable {
         var seen: Set<Element> = []
-        return filter({ (element) -> Bool in
+        return base.filter({ (element) -> Bool in
             if seen.contains(element) {
                 return false
             } else {
