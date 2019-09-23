@@ -1,6 +1,6 @@
 {
   "name": "Extensions",
-  "version": "19.1",
+  "version": "19.2",
   "summary": "Swift Extensions.",
   "description": "My own Swift extensions",
   "homepage": "git@github.com:Starkrimson/Extensions.git",
@@ -13,14 +13,12 @@
   },
   "source": {
     "git": "git@github.com:Starkrimson/Extensions.git",
-    "tag": "19.1"
+    "tag": "19.2"
   },
   "platforms": {
     "ios": "11.0"
   },
-  "pod_target_xcconfig": {
-    "SWIFT_VERSION": "5"
-  },
+  "swift_versions": "5",
   "default_subspecs": "Core",
   "subspecs": [
     {
@@ -59,5 +57,6 @@
         ]
       }
     }
-  ]
+  ],
+  "swift_version": "5"
 }
