@@ -26,12 +26,12 @@ class ViewController: UIViewController {
 
         tableView.ex.register(UITableViewCell.self)
         _ = tableView.ex.dequeue(UITableViewCell.self)
-        _ = ViewController.ex.instantiate()
     }
     
     @objc func aNotificationReceived(sender: Notification) {
         let s = sender.ex.getUserInfo(for: .aUserInfoKey)
         po(s, style: .warning)
+        snack(text: s, style: .warning)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

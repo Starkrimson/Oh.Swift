@@ -38,6 +38,7 @@ public extension Extensions where Base: NSObject {
     
 }
 
+// MARK: - UIColor
 public extension Extensions where Base: UIColor {
     
     static var darkBlue: UIColor {
@@ -66,11 +67,11 @@ public extension Extensions where Base: UIColor {
         return (ciColor.red, ciColor.green, ciColor.blue, ciColor.alpha)
     }
 
-    static func hex(_ hex: UInt32) -> UIColor {
+    static func hex(_ hex: UInt32, alpha: CGFloat = 1) -> UIColor {
         let r = (hex & 0xff0000) >> 16
         let g = (hex & 0x00ff00) >> 8
         let b = hex & 0x0000ff
-        return UIColor.ex.rgb(r: r, g: g, b: b)
+        return UIColor.ex.rgb(r: r, g: g, b: b, alpha: alpha)
     }
     
     static func rgb(r: UInt32, g: UInt32, b: UInt32, alpha: CGFloat = 1) -> UIColor {
@@ -82,6 +83,7 @@ public extension Extensions where Base: UIColor {
     }
 }
 
+// MARK: - UIImage
 public extension Extensions where Base: UIImage {
     
     /// 绘制圆角图片
@@ -171,6 +173,7 @@ public extension Extensions where Base: UIImage {
     }
 }
 
+// MARK: - NSAttributedString
 public extension Extensions where Base: NSAttributedString {
     
     static func attributedString(string: String?, fontSize size: CGFloat, color: UIColor?) -> NSAttributedString? {
@@ -197,6 +200,7 @@ public extension Extensions where Base: NSAttributedString {
     }
 }
 
+// MARK: - CGPoint
 extension CGPoint: ExtensionsCompatible { }
 public extension Extensions where Base == CGPoint {
     
@@ -226,13 +230,16 @@ public extension Extensions where Base == CGPoint {
     }
 }
 
+// MARK: - URL
 extension URL: ExtensionsCompatible { }
 public extension Extensions where Base == URL {
+    
     func copyItem(to dstURL: URL) {
         try? FileManager.default.copyItem(at: base, to: dstURL)
     }
 }
 
+// MARK: - String
 extension String: ExtensionsCompatible {
    
     /// 路径拼接
@@ -300,6 +307,7 @@ public extension Extensions where Base == String {
     }
 }
 
+// MARK: - Date
 public enum DateFormatHit {
     case none
     case RFC822
@@ -451,6 +459,7 @@ public extension Extensions where Base == Date {
     }
 }
 
+// MARK: - UIButton
 public extension Extensions where Base: UIButton {
     
     static func create(title: String?, fontSize: CGFloat = 14, normalColor: UIColor? = .black, highlightedColor: UIColor? = nil, backgroundImage: UIImage? = nil, backgroundColor: UIColor? = nil, moveTo superView: UIView? = nil, moreSetter: ((_ button: UIButton)->())? = nil) -> UIButton {
@@ -484,6 +493,7 @@ public extension Extensions where Base: UIButton {
     }
 }
 
+// MARK: - UILabel
 public extension Extensions where Base: UILabel {
     
     static func create(_ text: String, alignment: NSTextAlignment = .center, textColor: UIColor = .black, font: UIFont, lines: Int = 0, moveTo superView: UIView? = nil, moreSetter: ((_ label: UILabel)->())? = nil) -> UILabel {
@@ -548,6 +558,7 @@ public extension Extensions where Base: UIImageView {
     }
 }
 
+// MARK: - UIAlertController
 public extension Extensions where Base: UIAlertController {
     
     static func present(title: String?, message: String?, preferredStyle: UIAlertController.Style, cancel: String = "cancel", cancelHandler: ((UIAlertAction)->Void)? = nil, position: CGPoint? = nil, actions: [UIAlertAction], moreSetter: ((_ alert: UIAlertController)->())? = nil) {
@@ -590,6 +601,7 @@ public extension Extensions where Base: UIAlertController {
     }
 }
 
+// MARK: - UIScreen
 public extension Extensions where Base: UIScreen {
     
     static var portraitWidth: CGFloat {
@@ -611,6 +623,7 @@ public extension Extensions where Base: UIScreen {
     }
 }
 
+// MARK: - Bundle
 public extension Extensions where Base: Bundle {
     
     static var displayName: String {
@@ -624,6 +637,7 @@ public extension Extensions where Base: Bundle {
     static var documentDirectory: String { return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] }
 }
 
+// MARK: - UIApplication
 public extension Extensions where Base: UIApplication {
     
     static func openSettings() {
@@ -636,6 +650,7 @@ public extension Extensions where Base: UIApplication {
     }
 }
 
+// MARK: - Sequence
 public extension Extensions where Base: Sequence {
     
     /// Removing duplicate elements and keep origin order
@@ -654,6 +669,7 @@ public extension Extensions where Base: Sequence {
     }
 }
 
+// MARK: - Notification
 extension Notification: ExtensionsCompatible { }
 public extension Extensions where Base == Notification {
     
@@ -670,6 +686,7 @@ public extension Extensions where Base == Notification {
     }
 }
 
+// MARK: - NotificationCenter
 public extension Extensions where Base: NotificationCenter {
     
     func post<T>(name aName: NSNotification.Name, object anObject: Any? = nil, typedUserInfo aUserInfo: [Extensions<Notification>.UserInfoKey<T> : T]? = nil) {
@@ -681,6 +698,7 @@ public extension Extensions where Base: NotificationCenter {
     }
 }
 
+// MARK: - UITableView
 public extension Extensions where Base: UITableView {
     
     func register<T: UITableViewCell>(nib aClass: T.Type) {
@@ -703,6 +721,7 @@ public extension Extensions where Base: UITableView {
     }
 }
 
+// MARK: - UIViewController
 public extension Extensions where Base: UIViewController {
     
     static func instantiate(storyBoard: UIStoryboard = .main, identifier: String? = nil) -> Base {
@@ -718,10 +737,12 @@ public extension Extensions where Base: UIViewController {
     }
 }
 
+// MARK: - UIStoryboard
 public extension UIStoryboard {
     static let main = UIStoryboard(name: "Main", bundle: nil)
 }
 
+// MARK: - Array
 extension Array: ExtensionsCompatible { }
 public extension Extensions where Base: RangeReplaceableCollection {
     
