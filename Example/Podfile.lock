@@ -1,9 +1,9 @@
 PODS:
-  - Extensions/Core (19.2)
-  - Extensions/MDC (19.2):
+  - Extensions/Core (19.3)
+  - Extensions/MDC (19.3):
     - Extensions/Core
     - MaterialComponents/Snackbar (~> 83.0)
-  - Extensions/Rx (19.2):
+  - Extensions/Rx (19.3):
     - Extensions/Core
     - RxCocoa (~> 5.0)
     - RxSwift (~> 5.0)
@@ -74,7 +74,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Extensions: 6261044ad7682e7af7641faa9374992f5e256c82
+  Extensions: 320e1075ec138e72cdcbd363bfb3e69c8f134ae7
   MaterialComponents: 2363f5dab79a96d3958e6aaf49ec116e102d23dc
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
