@@ -10,13 +10,33 @@ public func debugLog<T>(_ message: T, file: String = #file, method: String = #fu
     #endif
 }
 
-public enum POStyle: String {
-    case normal = "", warning = "⚠️", error = "❗️"
+public enum POStyle {
+    case normal, warning, error
+    case shamrock
+    case custom(emoji: String)
+    
+    var value: String {
+        switch self {
+        case .normal: return ""
+        case .shamrock: return "☘️"
+        case .warning: return "⚠️"
+        case .error: return "❗️"
+        case .custom(let emoji): return emoji
+        }
+    }
+    
+    var isNormal: Bool {
+        if case POStyle.normal = self {
+            return true
+        } else {
+            return false
+        }
+    }
 }
 
 public func po(_ items: Any...,
     id: String? = nil,
-    style: POStyle = .normal,
+    style: POStyle = .shamrock,
     file: String = #file, method: String = #function, line: Int = #line) {
     #if DEBUG
     func p(_ items: Any..., terminator: String = " ") {
@@ -30,14 +50,14 @@ public func po(_ items: Any...,
     let dateString = dateFormatter.string(from: Date())
     p(dateString)
     
+    if !style.isNormal {
+        p(style.value)
+    }
+
     if let identifier = id {
         p(identifier)
     } else {
         p("\((file as NSString).lastPathComponent):\(line).\(method)")
-    }
-    
-    if style != .normal {
-        p(style.rawValue)
     }
     
     p("->")

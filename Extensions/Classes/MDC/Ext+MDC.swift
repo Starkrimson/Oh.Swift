@@ -5,7 +5,7 @@ public extension Extensions where Base: NSObject {
     typealias SnackAction = (title: String, handler: ()->())
     @available(*, deprecated, message: "Please use `public func snack` as a replacement.")
     func snack(text: String, style: POStyle = .normal, action: SnackAction? = nil, completionHandler: ((Bool) -> ())? = nil) {
-        let msg = style == .normal ? text : "\(style.rawValue) \(text)"
+        let msg = style.isNormal ? text : "\(style.value) \(text)"
         let message = MDCSnackbarMessage(text: msg)
         let messageAction = MDCSnackbarMessageAction()
         messageAction.title = action?.title
@@ -25,7 +25,7 @@ public extension Extensions where Base: NSObject {
 public typealias SnackAction = (title: String, handler: ()->())
 
 public func snack(text: String, style: POStyle = .normal, action: SnackAction? = nil, completionHandler: ((Bool) -> ())? = nil) {
-    let msg = style == .normal ? text : "\(style.rawValue) \(text)"
+    let msg = style.isNormal ? text : "\(style.value) \(text)"
     let message = MDCSnackbarMessage(text: msg)
     let messageAction = MDCSnackbarMessageAction()
     messageAction.title = action?.title
@@ -38,5 +38,5 @@ public func snack(text: String, style: POStyle = .normal, action: SnackAction? =
     DispatchQueue.main.async {
         MDCSnackbarManager.show(message)
     }
-    po(msg, id: "Snack")
+    po(text, id: "Snack", style: style)
 }

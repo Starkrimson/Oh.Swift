@@ -30,15 +30,14 @@ class ViewController: UIViewController {
     
     @objc func aNotificationReceived(sender: Notification) {
         let s = sender.ex.getUserInfo(for: .aUserInfoKey)
-        po(s, style: .warning)
-        snack(text: s, style: .warning)
+        po(s, id: "id")
+        snack(text: s, style: .custom(emoji: "😂"))
+        po(s, id: "id2", style: .custom(emoji: "👽"))
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         NotificationCenter.default.ex.post(name: .aNotificationName,
                                            typedUserInfo: [.aUserInfoKey: "hello"])
-        NotificationCenter.ex.post(name: .aNotificationName,
-                                   typedUserInfo: [.aUserInfoKey: "hello ex"])
     }
     
     override func didReceiveMemoryWarning() {

@@ -16,51 +16,107 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		098131422339E42D003B93F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF4F505ECC191CCA0D545EC596118D81 /* Extensions */;
+			proxyType = 2;
+			remoteGlobalIDString = 393F5A7D2D85EF62F433C86A82BD1F05;
+			remoteInfo = Extensions;
+		};
+		098131442339E42D003B93F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF4F505ECC191CCA0D545EC596118D81 /* Extensions */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B2A67F1DCB9983A798DE2959A952BED;
+			remoteInfo = "Extensions-Localization";
+		};
+		098131462339E42D003B93F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC8C03DCE7D69A7F3CB42A86917B628B /* MaterialComponents */;
+			proxyType = 2;
+			remoteGlobalIDString = 73AABF15C95B8A3B64B7B677FCCBA635;
+			remoteInfo = MaterialComponents;
+		};
+		098131482339E42D003B93F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8DFED15C76EB211E057E8930FEA8B4DE /* MDFInternationalization */;
+			proxyType = 2;
+			remoteGlobalIDString = DDEA7B9C720EA5BBCF55DAF2480A63AF;
+			remoteInfo = MDFInternationalization;
+		};
+		0981314A2339E42D003B93F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F9C7C28239749336364BC70F8619B90 /* MDFTextAccessibility */;
+			proxyType = 2;
+			remoteGlobalIDString = C71C5A929B921E0D6B7994E7AF817478;
+			remoteInfo = MDFTextAccessibility;
+		};
+		0981314C2339E42D003B93F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0996BD96C0BB6B78790FE18CB505A229 /* RxCocoa */;
+			proxyType = 2;
+			remoteGlobalIDString = F49FD34447716E9C149BEC0B4BF25379;
+			remoteInfo = RxCocoa;
+		};
+		0981314E2339E42D003B93F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FADBD4011CA50A032784734B76FB66EB /* RxRelay */;
+			proxyType = 2;
+			remoteGlobalIDString = B546861C56544DEBBDF2AD71F1BDF8F2;
+			remoteInfo = RxRelay;
+		};
+		098131502339E42D003B93F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB71E0120BDEB01B67923C50E4DD46A0 /* RxSwift */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DE4C0E7DB0FAED8D254CFA338432B04;
+			remoteInfo = RxSwift;
+		};
 		B2E1241A88A3F495C2D9D4E4D194D411 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FADBD4011CA50A032784734B76FB66EB /* RxRelay.xcodeproj */;
+			containerPortal = FADBD4011CA50A032784734B76FB66EB /* RxRelay */;
 			proxyType = 1;
 			remoteGlobalIDString = 564FA919E05BFD512DA9163BAB640EEE;
 			remoteInfo = RxRelay;
 		};
 		B9FA8A9EBF211B30D7F50DDB9761E070 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0F9C7C28239749336364BC70F8619B90 /* MDFTextAccessibility.xcodeproj */;
+			containerPortal = 0F9C7C28239749336364BC70F8619B90 /* MDFTextAccessibility */;
 			proxyType = 1;
 			remoteGlobalIDString = 39DA5CBC650C1815B43673EFDC0FDDFB;
 			remoteInfo = MDFTextAccessibility;
 		};
 		C3316A30228635FB0F0D88508E836451 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = CF4F505ECC191CCA0D545EC596118D81 /* Extensions.xcodeproj */;
+			containerPortal = CF4F505ECC191CCA0D545EC596118D81 /* Extensions */;
 			proxyType = 1;
 			remoteGlobalIDString = 0FC4D9E1CEBCF0574C3414904E928A66;
 			remoteInfo = Extensions;
 		};
 		C9CB02FC7B0C0FC08F2C68DBAD5F3287 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BB71E0120BDEB01B67923C50E4DD46A0 /* RxSwift.xcodeproj */;
+			containerPortal = BB71E0120BDEB01B67923C50E4DD46A0 /* RxSwift */;
 			proxyType = 1;
 			remoteGlobalIDString = F0179EE061353B7A322F596E97844774;
 			remoteInfo = RxSwift;
 		};
 		CF02CF2B1749214AD9FBF74C84536333 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0996BD96C0BB6B78790FE18CB505A229 /* RxCocoa.xcodeproj */;
+			containerPortal = 0996BD96C0BB6B78790FE18CB505A229 /* RxCocoa */;
 			proxyType = 1;
 			remoteGlobalIDString = BC5183FBB16A06C1D86620B00CFE6269;
 			remoteInfo = RxCocoa;
 		};
 		E50FFA25AA99A183D4DBDE5D9FFA6443 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 8DFED15C76EB211E057E8930FEA8B4DE /* MDFInternationalization.xcodeproj */;
+			containerPortal = 8DFED15C76EB211E057E8930FEA8B4DE /* MDFInternationalization */;
 			proxyType = 1;
 			remoteGlobalIDString = 09F6AE8A62CAA101CF422065B0EAA720;
 			remoteInfo = MDFInternationalization;
 		};
 		F32EA1D3A2BCDA55E44D20AC48BBD644 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DC8C03DCE7D69A7F3CB42A86917B628B /* MaterialComponents.xcodeproj */;
+			containerPortal = DC8C03DCE7D69A7F3CB42A86917B628B /* MaterialComponents */;
 			proxyType = 1;
 			remoteGlobalIDString = F3ECCEE9BD0A17ED9D515857D76BE1A2;
 			remoteInfo = MaterialComponents;
@@ -82,13 +138,13 @@
 		25A0F0D77872982073FFCCC4F9F3CFC5 /* Pods-Extensions_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Extensions_Example.release.xcconfig"; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		4F8B2A0F4EF60EA282EBD0D8620ADFD1 /* Pods-Extensions_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Extensions_Example-dummy.m"; sourceTree = "<group>"; };
-		5AC616E08FF6F9FF435B1E061E0E00E9 /* Pods_Extensions_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Extensions_Example.framework; path = "Pods-Extensions_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8311F70E22E2B89CC36CFEC5B0363AF2 /* Pods_Extensions_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Extensions_Tests.framework; path = "Pods-Extensions_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AC616E08FF6F9FF435B1E061E0E00E9 /* Pods_Extensions_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Extensions_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8311F70E22E2B89CC36CFEC5B0363AF2 /* Pods_Extensions_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Extensions_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DFED15C76EB211E057E8930FEA8B4DE /* MDFInternationalization */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MDFInternationalization; path = MDFInternationalization.xcodeproj; sourceTree = "<group>"; };
 		8FD9CB4604842AD673CFD57FA550DCF2 /* Pods-Extensions_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Extensions_Example-umbrella.h"; sourceTree = "<group>"; };
 		8FEF4C9AF7F95EF547AB8D3C52D7B5A6 /* Pods-Extensions_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Extensions_Example-frameworks.sh"; sourceTree = "<group>"; };
 		942BF36A17A82E7E811458DA32ACC055 /* Pods-Extensions_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Extensions_Tests.modulemap"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A64ADC23355D3684BB348A891E7C54A3 /* Pods-Extensions_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Extensions_Tests-Info.plist"; sourceTree = "<group>"; };
 		A804FFF189271CBC74EA7273142A4ECB /* Pods-Extensions_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Extensions_Example.modulemap"; sourceTree = "<group>"; };
 		ACC041CC10E5E29650E8F6ED802B1A65 /* Pods-Extensions_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Extensions_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -148,6 +204,63 @@
 			);
 			name = "Pods-Extensions_Example";
 			path = "Target Support Files/Pods-Extensions_Example";
+			sourceTree = "<group>";
+		};
+		098131262339D267003B93F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				098131512339E42D003B93F7 /* RxSwift.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		098131282339D267003B93F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				098131492339E42D003B93F7 /* MDFInternationalization.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0981312A2339D267003B93F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0981314D2339E42D003B93F7 /* RxCocoa.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0981312C2339D267003B93F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				098131472339E42D003B93F7 /* MaterialComponents.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0981312E2339D267003B93F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0981314B2339E42D003B93F7 /* MDFTextAccessibility.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		098131302339D267003B93F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0981314F2339E42D003B93F7 /* RxRelay.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		098131322339D267003B93F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				098131432339E42D003B93F7 /* Extensions.framework */,
+				098131452339E42D003B93F7 /* Localization.bundle */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		15CFF8024D18C4B2CAC77734B6B61953 /* Pods */ = {
@@ -306,30 +419,38 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = 227C6330E2A4191EBD557D74B5C5A775 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 098131322339D267003B93F7 /* Products */;
 					ProjectRef = CF4F505ECC191CCA0D545EC596118D81 /* Extensions */;
 				},
 				{
-					ProjectRef = 8DFED15C76EB211E057E8930FEA8B4DE /* MDFInternationalization */;
-				},
-				{
-					ProjectRef = 0F9C7C28239749336364BC70F8619B90 /* MDFTextAccessibility */;
-				},
-				{
+					ProductGroup = 0981312C2339D267003B93F7 /* Products */;
 					ProjectRef = DC8C03DCE7D69A7F3CB42A86917B628B /* MaterialComponents */;
 				},
 				{
+					ProductGroup = 098131282339D267003B93F7 /* Products */;
+					ProjectRef = 8DFED15C76EB211E057E8930FEA8B4DE /* MDFInternationalization */;
+				},
+				{
+					ProductGroup = 0981312E2339D267003B93F7 /* Products */;
+					ProjectRef = 0F9C7C28239749336364BC70F8619B90 /* MDFTextAccessibility */;
+				},
+				{
+					ProductGroup = 0981312A2339D267003B93F7 /* Products */;
 					ProjectRef = 0996BD96C0BB6B78790FE18CB505A229 /* RxCocoa */;
 				},
 				{
+					ProductGroup = 098131302339D267003B93F7 /* Products */;
 					ProjectRef = FADBD4011CA50A032784734B76FB66EB /* RxRelay */;
 				},
 				{
+					ProductGroup = 098131262339D267003B93F7 /* Products */;
 					ProjectRef = BB71E0120BDEB01B67923C50E4DD46A0 /* RxSwift */;
 				},
 			);
@@ -340,6 +461,65 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		098131432339E42D003B93F7 /* Extensions.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Extensions.framework;
+			remoteRef = 098131422339E42D003B93F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		098131452339E42D003B93F7 /* Localization.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Localization.bundle;
+			remoteRef = 098131442339E42D003B93F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		098131472339E42D003B93F7 /* MaterialComponents.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MaterialComponents.framework;
+			remoteRef = 098131462339E42D003B93F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		098131492339E42D003B93F7 /* MDFInternationalization.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MDFInternationalization.framework;
+			remoteRef = 098131482339E42D003B93F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0981314B2339E42D003B93F7 /* MDFTextAccessibility.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MDFTextAccessibility.framework;
+			remoteRef = 0981314A2339E42D003B93F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0981314D2339E42D003B93F7 /* RxCocoa.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RxCocoa.framework;
+			remoteRef = 0981314C2339E42D003B93F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0981314F2339E42D003B93F7 /* RxRelay.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RxRelay.framework;
+			remoteRef = 0981314E2339E42D003B93F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		098131512339E42D003B93F7 /* RxSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RxSwift.framework;
+			remoteRef = 098131502339E42D003B93F7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		710CB4F55205EA8EFCD22245F997814A /* Resources */ = {
@@ -475,8 +655,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -487,7 +666,6 @@
 			baseConfigurationReference = CC154CBCA5B90778891700B73F9C18CF /* Pods-Extensions_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -522,7 +700,6 @@
 			baseConfigurationReference = 25A0F0D77872982073FFCCC4F9F3CFC5 /* Pods-Extensions_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -558,7 +735,6 @@
 			baseConfigurationReference = AD753D43D32FA75C4DDB7888B4DCE5DA /* Pods-Extensions_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -594,7 +770,6 @@
 			baseConfigurationReference = AD21A29F18E6E07DE95F4D0BBDF24CC3 /* Pods-Extensions_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
