@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Extensions'
-  s.version          = '19.4'
+  s.version          = '20.0'
   s.summary          = 'Swift Extensions.'
   s.description      = <<-DESC 
     My own Swift extensions 
@@ -34,6 +34,7 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'Rx' do |rx|
+    rx.ios.deployment_target = '11.0'
     rx.source_files = 'Extensions/Classes/Rx/**/*'
     rx.dependency 'Extensions/Core'
     rx.dependency 'RxSwift', '~> 5.0'
@@ -41,8 +42,9 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'MDC' do |mdc|
+      mdc.ios.deployment_target = '11.0'
       mdc.source_files = 'Extensions/Classes/MDC/**/*'
       mdc.dependency 'Extensions/Core'
-      mdc.dependency 'MaterialComponents/Snackbar', '~> 83.0'
+      mdc.dependency 'MaterialComponents/Snackbar', '~> 91.1'
   end
 end

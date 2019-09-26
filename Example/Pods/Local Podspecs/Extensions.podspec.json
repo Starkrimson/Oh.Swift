@@ -1,6 +1,6 @@
 {
   "name": "Extensions",
-  "version": "19.4",
+  "version": "20.0",
   "summary": "Swift Extensions.",
   "description": "My own Swift extensions",
   "homepage": "git@github.com:Starkrimson/Extensions.git",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "git@github.com:Starkrimson/Extensions.git",
-    "tag": "19.4"
+    "tag": "20.0"
   },
   "platforms": {
     "ios": "11.0"
@@ -32,6 +32,9 @@
     },
     {
       "name": "Rx",
+      "platforms": {
+        "ios": "11.0"
+      },
       "source_files": "Extensions/Classes/Rx/**/*",
       "dependencies": {
         "Extensions/Core": [
@@ -47,13 +50,16 @@
     },
     {
       "name": "MDC",
+      "platforms": {
+        "ios": "11.0"
+      },
       "source_files": "Extensions/Classes/MDC/**/*",
       "dependencies": {
         "Extensions/Core": [
 
         ],
         "MaterialComponents/Snackbar": [
-          "~> 83.0"
+          "~> 91.1"
         ]
       }
     }

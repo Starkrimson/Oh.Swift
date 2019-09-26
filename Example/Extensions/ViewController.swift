@@ -13,6 +13,8 @@ import MaterialComponents
 
 class ViewController: UIViewController {
     
+    let indicator = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         NotificationCenter.default.addObserver(self, selector: #selector(aNotificationReceived(sender:)), name: .aNotificationName, object: nil)
         
@@ -26,13 +28,29 @@ class ViewController: UIViewController {
 
         tableView.ex.register(UITableViewCell.self)
         _ = tableView.ex.dequeue(UITableViewCell.self)
+        
+        view.addSubview(indicator)
+        indicator.center = view.center
     }
     
     @objc func aNotificationReceived(sender: Notification) {
-        let s = sender.ex.getUserInfo(for: .aUserInfoKey)
-        po(s, id: "id")
-        snack(text: s, style: .custom(emoji: "😂"))
-        po(s, id: "id2", style: .custom(emoji: "👽"))
+        let _ = sender.ex.getUserInfo(for: .aUserInfoKey)
+        let loading = ActivityIndicator()
+        Observable.just(())
+            .delay(.seconds(2), scheduler: MainScheduler.instance)
+            .trackActivity(loading)
+//            .flatMap { _ -> Observable<Int> in
+//                let error = NSError(domain: "cus", code: -1000, userInfo: [:])
+//                return Observable.error(error)
+//            }
+            .flatMap { _ -> Observable<Int> in
+                return .empty()
+            }
+            .debug("trackActivity")
+            .subscribe()
+            .disposed(by: bag)
+        
+        loading.asDriver().drive(indicator.rx.isAnimating).disposed(by: bag)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

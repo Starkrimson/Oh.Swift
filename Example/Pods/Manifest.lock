@@ -1,14 +1,15 @@
 PODS:
-  - Extensions/Core (19.4)
-  - Extensions/MDC (19.4):
+  - Extensions/Core (20.0)
+  - Extensions/MDC (20.0):
     - Extensions/Core
-    - MaterialComponents/Snackbar (~> 83.0)
-  - Extensions/Rx (19.4):
+    - MaterialComponents/Snackbar (~> 91.1)
+  - Extensions/Rx (20.0):
     - Extensions/Core
     - RxCocoa (~> 5.0)
     - RxSwift (~> 5.0)
-  - MaterialComponents/AnimationTiming (83.0.1)
-  - MaterialComponents/Buttons (83.0.1):
+  - MaterialComponents/AnimationTiming (91.1.1)
+  - MaterialComponents/Buttons (91.1.1):
+    - MaterialComponents/Elevation
     - MaterialComponents/Ink
     - MaterialComponents/private/Math
     - MaterialComponents/Ripple
@@ -18,33 +19,44 @@ PODS:
     - MaterialComponents/Typography
     - MDFInternationalization
     - MDFTextAccessibility
-  - MaterialComponents/Ink (83.0.1):
+  - MaterialComponents/Elevation (91.1.1):
+    - MaterialComponents/private/Color
     - MaterialComponents/private/Math
-  - MaterialComponents/OverlayWindow (83.0.1):
+  - MaterialComponents/Ink (91.1.1):
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/OverlayWindow (91.1.1):
     - MaterialComponents/private/Application
-  - MaterialComponents/private/Application (83.0.1)
-  - MaterialComponents/private/KeyboardWatcher (83.0.1):
+  - MaterialComponents/private/Application (91.1.1)
+  - MaterialComponents/private/Color (91.1.1)
+  - MaterialComponents/private/KeyboardWatcher (91.1.1):
     - MaterialComponents/private/Application
-  - MaterialComponents/private/Math (83.0.1)
-  - MaterialComponents/private/Overlay (83.0.1)
-  - MaterialComponents/Ripple (83.0.1):
+  - MaterialComponents/private/Math (91.1.1)
+  - MaterialComponents/private/Overlay (91.1.1)
+  - MaterialComponents/Ripple (91.1.1):
     - MaterialComponents/AnimationTiming
+    - MaterialComponents/private/Color
     - MaterialComponents/private/Math
-  - MaterialComponents/ShadowElevations (83.0.1)
-  - MaterialComponents/ShadowLayer (83.0.1):
+  - MaterialComponents/ShadowElevations (91.1.1)
+  - MaterialComponents/ShadowLayer (91.1.1):
     - MaterialComponents/ShadowElevations
-  - MaterialComponents/Shapes (83.0.1):
+  - MaterialComponents/Shapes (91.1.1):
+    - MaterialComponents/private/Color
     - MaterialComponents/private/Math
     - MaterialComponents/ShadowLayer
-  - MaterialComponents/Snackbar (83.0.1):
+  - MaterialComponents/Snackbar (91.1.1):
     - MaterialComponents/AnimationTiming
     - MaterialComponents/Buttons
+    - MaterialComponents/Elevation
     - MaterialComponents/OverlayWindow
     - MaterialComponents/private/Application
     - MaterialComponents/private/KeyboardWatcher
+    - MaterialComponents/private/Math
     - MaterialComponents/private/Overlay
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
     - MaterialComponents/Typography
-  - MaterialComponents/Typography (83.0.1):
+  - MaterialComponents/Typography (91.1.1):
     - MaterialComponents/private/Application
     - MaterialComponents/private/Math
   - MDFInternationalization (2.0.0)
@@ -74,8 +86,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Extensions: 86b9083dba8dde54f6b0f86f9bf5af0c99102b75
-  MaterialComponents: 2363f5dab79a96d3958e6aaf49ec116e102d23dc
+  Extensions: 396110edc1e15e9434b0e7e2618297c7ee8da089
+  MaterialComponents: 266edd75f7459f880cbfe65a06f4622ff6c71989
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
