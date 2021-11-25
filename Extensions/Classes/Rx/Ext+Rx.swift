@@ -5,7 +5,7 @@ private var disposeBagContext: UInt8 = 0
 
 extension Reactive where Base: AnyObject {
     
-    private func synchroizedBag<T>(_ action: () -> T) -> T {
+    private func synchronizedBag<T>(_ action: () -> T) -> T {
         objc_sync_enter(base)
         let result = action()
         objc_sync_exit(base)
@@ -14,7 +14,7 @@ extension Reactive where Base: AnyObject {
     
     public var disposeBag: DisposeBag {
         get {
-            return synchroizedBag {
+            return synchronizedBag {
                 if let disposeObject = objc_getAssociatedObject(base, &disposeBagContext) as? DisposeBag {
                     return disposeObject
                 }
@@ -25,7 +25,7 @@ extension Reactive where Base: AnyObject {
         }
         
         set {
-            synchroizedBag {
+            synchronizedBag {
                 objc_setAssociatedObject(base, &disposeBagContext, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             }
         }
@@ -34,7 +34,7 @@ extension Reactive where Base: AnyObject {
 
 extension NSObject {
     
-    private func synchroizedBag<T>(_ action: () -> T) -> T {
+    private func synchronizedBag<T>(_ action: () -> T) -> T {
         objc_sync_enter(self)
         let result = action()
         objc_sync_exit(self)
@@ -43,7 +43,7 @@ extension NSObject {
     
     public var bag: DisposeBag {
         get {
-            return synchroizedBag {
+            return synchronizedBag {
                 if let disposeObject = objc_getAssociatedObject(self, &disposeBagContext) as? DisposeBag {
                     return disposeObject
                 }
@@ -54,7 +54,7 @@ extension NSObject {
         }
         
         set {
-            synchroizedBag {
+            synchronizedBag {
                 objc_setAssociatedObject(self, &disposeBagContext, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             }
         }
@@ -84,7 +84,7 @@ public extension Reactive where Base: UITableView {
         ])
     
         items
-            .bind(to: tableView.rx.items(cell: UITableViewCell.self)) { (row,element, cell) in
+            .bind(to: tableView.rx.items(cell: UITableViewCell.self)) { (row, element, cell) in
                 cell.textLabel?.text = "\(element) @ row \(row)"
             }
             .disposed(by: rx.disposeBag)

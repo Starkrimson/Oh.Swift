@@ -715,7 +715,7 @@ public extension Extensions where Base: UITableView {
     func dequeue<T: UITableViewCell>(_ reusableCell: T.Type) -> T {
         let name = String(describing: reusableCell)
         guard let cell = base.dequeueReusableCell(withIdentifier: name) as? T else {
-            fatalError("\(name) is not registed")
+            fatalError("\(name) is not registered")
         }
         return cell
     }

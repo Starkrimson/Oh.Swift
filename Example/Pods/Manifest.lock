@@ -73,7 +73,7 @@ DEPENDENCIES:
   - Extensions/Rx (from `../`)
 
 SPEC REPOS:
-  https://cdn.cocoapods.org/:
+  trunk:
     - MaterialComponents
     - MDFInternationalization
     - MDFTextAccessibility
@@ -96,4 +96,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: f2d3f76e72f9d0895cadaec828832f1ff5ac38fd
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.10.1
