@@ -25,5 +25,13 @@ public extension OhSwift where Base: UIScreen {
 
     /// screen height
     static var height: CGFloat { UIScreen.main.bounds.height }
+}
 
+
+extension CGFloat: OhSwiftCompatible { }
+
+public extension OhSwift where Base == CGFloat {
+
+    static var screenWidth: CGFloat { UIScreen.oh.width }
+    static var screenHeight: CGFloat { UIScreen.oh.height }
 }

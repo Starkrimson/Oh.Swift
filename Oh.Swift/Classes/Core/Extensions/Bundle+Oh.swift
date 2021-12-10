@@ -26,3 +26,10 @@ public extension OhSwift where Base: Bundle {
         NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
     }
 }
+
+public extension OhSwift where Base == String {
+
+    static var appName: String { Bundle.oh.displayName }
+    static var appVersion: String { Bundle.oh.marketingVersion }
+    static var appBuild: String { Bundle.oh.buildVersion }
+}

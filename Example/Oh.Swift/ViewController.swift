@@ -33,13 +33,14 @@ class ViewController: UIViewController {
         ("UIScreen", [
             "宽 \(UIScreen.oh.portraitWidth)",
             "高 \(UIScreen.oh.landscapeWidth)",
+            "Size \(CGSize(width: .oh.screenWidth, height: .oh.screenHeight))"
         ])
     ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Oh.Swift"
+        title = .oh.appName
 
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
