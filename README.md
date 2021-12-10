@@ -9,7 +9,19 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
+```Swift
+// UIColor
+view.backgroundColor = .oh.hex(0xFFFFFF)
+view.backgroundColor = .oh.random
+
+
+// UITableView
+tableView.oh.register(UITableViewCell.self)
+// ...
+let cell = tableView.oh.dequeue(UITableViewCell.self)
+```
+
+[More...](https://anicon.notion.site/Oh-Swift-Example-8edc323562694825b2e8966cf70778cb)
 
 ## Installation
 
@@ -22,7 +34,7 @@ pod 'Oh.Swift'
 
 ## Author
 
-Starkrimson, jagni@live.com
+Starkrimson, starkrimson@icloud.com
 
 ## License
 
