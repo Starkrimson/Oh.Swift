@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Oh.Swift'
-  s.version          = '0.1.0'
+  s.version          = '0.1'
   s.summary          = 'A short description of Oh.Swift.'
 
 # This description is used to generate tags and improve search results.
@@ -30,8 +30,14 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'Oh.Swift/Classes/**/*'
-  
+  s.module_name = 'OhSwift'
+  s.default_subspec = 'Core'
+
+  s.subspec 'Core' do |core|
+    core.source_files = 'Oh.Swift/Classes/Core/**/*'
+  end
+
+
   # s.resource_bundles = {
   #   'Oh.Swift' => ['Oh.Swift/Assets/*.png']
   # }

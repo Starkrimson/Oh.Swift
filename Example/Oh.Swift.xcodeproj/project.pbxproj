@@ -30,7 +30,7 @@
 /* Begin PBXFileReference section */
 		0F028D7967C0383D1DFDC65A /* Pods_Oh_Swift_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Oh_Swift_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		462F490D2294420CB283E29B /* Pods-Oh.Swift_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oh.Swift_Example.debug.xcconfig"; path = "Target Support Files/Pods-Oh.Swift_Example/Pods-Oh.Swift_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		49108AD7155AAAD64601A08A /* Oh.Swift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = Oh.Swift.podspec; path = ../Oh.Swift.podspec; sourceTree = "<group>"; };
+		49108AD7155AAAD64601A08A /* Oh.Swift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Oh.Swift.podspec; path = ../Oh.Swift.podspec; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Oh.Swift_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oh.Swift_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,9 +44,9 @@
 		6A5E5FAA45D76133EC874F6C /* Pods_Oh_Swift_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Oh_Swift_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8338591F59C1A2B024E3EBA3 /* Pods-Oh.Swift_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oh.Swift_Tests.release.xcconfig"; path = "Target Support Files/Pods-Oh.Swift_Tests/Pods-Oh.Swift_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		96FDCFC14AA3A6C41A8F26D2 /* Pods-Oh.Swift_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oh.Swift_Example.release.xcconfig"; path = "Target Support Files/Pods-Oh.Swift_Example/Pods-Oh.Swift_Example.release.xcconfig"; sourceTree = "<group>"; };
-		B5AF2D5915E966FC488A7CE8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		B5AF2D5915E966FC488A7CE8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		C889E13049A06C40586EB334 /* Pods-Oh.Swift_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oh.Swift_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Oh.Swift_Tests/Pods-Oh.Swift_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		D89EBF4AADA14D409E4C3849 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		D89EBF4AADA14D409E4C3849 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +147,6 @@
 				C889E13049A06C40586EB334 /* Pods-Oh.Swift_Tests.debug.xcconfig */,
 				8338591F59C1A2B024E3EBA3 /* Pods-Oh.Swift_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -171,7 +170,7 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				713B8B0A9A53CFCED052AB78 /* [CP] Embed Pods Frameworks */,
+				C9A057AA03540C1E7E7A84F3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -227,6 +226,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -284,18 +284,18 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		713B8B0A9A53CFCED052AB78 /* [CP] Embed Pods Frameworks */ = {
+		C9A057AA03540C1E7E7A84F3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Oh.Swift_Example/Pods-Oh.Swift_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Oh.Swift/Oh_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/Oh.Swift/OhSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Oh_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OhSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -480,6 +480,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Oh.Swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 0.1;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -495,6 +496,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Oh.Swift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 0.1;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -1,5 +1,5 @@
 import XCTest
-import Oh.Swift
+import OhSwift
 
 class Tests: XCTestCase {
     

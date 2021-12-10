@@ -1,5 +1,7 @@
 PODS:
-  - Oh.Swift (0.1.0)
+  - Oh.Swift (0.1):
+    - Oh.Swift/Core (= 0.1)
+  - Oh.Swift/Core (0.1)
 
 DEPENDENCIES:
   - Oh.Swift (from `../`)
@@ -9,8 +11,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Oh.Swift: 7e7940e1bbc0437c381983703417f21fc5cc06c5
+  Oh.Swift: 0230fde84bdb325570ae95cda4396264fdf5a460
 
-PODFILE CHECKSUM: 47f8d5b40f74d98d3e6cab070e389eed388b1ac3
+PODFILE CHECKSUM: 6d36b91427e643ab1886939d2c36e855db6a4920
 
 COCOAPODS: 1.11.2
