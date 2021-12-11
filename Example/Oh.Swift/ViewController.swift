@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         return tableView
     }()
 
-    var dataSource: [(sectionTitle: String, items: [String])] = [
+    lazy var dataSource: [(sectionTitle: String, items: [String])] = [
         ("Bundle", [
             "Display name: \(Bundle.oh.displayName)",
             "Version: \(Bundle.oh.marketingVersion)",
@@ -34,8 +34,15 @@ class ViewController: UIViewController {
             "宽 \(UIScreen.oh.portraitWidth)",
             "高 \(UIScreen.oh.landscapeWidth)",
             "Size \(CGSize(width: .oh.screenWidth, height: .oh.screenHeight))"
+        ]),
+        ("UserDefaultsWrapper", [
+            // UserDefaults.standard.bool(forKey: "oh.swift.toggle")
+            "toggle \(toggle!)"
         ])
     ]
+
+    @UserDefaultsWrapper("oh.swift.toggle", defaultValue: true)
+    var toggle: Bool!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +57,10 @@ class ViewController: UIViewController {
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ].forEach { $0.isActive = true }
+
+        // UserDefaults.standard.set(false, forKey: "oh.swift.toggle")
+        // UserDefaults.standard.synchronize()
+        toggle = false
     }
 
     override func didReceiveMemoryWarning() {
