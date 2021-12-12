@@ -9,6 +9,13 @@
 import UIKit
 import OhSwift
 
+struct Model: Codable {
+    @Default<String> var text: String
+    @Default<Int> var integer: Int
+    @Default<Double> var decimal: Double
+    @Default.True var flag: Bool
+}
+
 class ViewController: UIViewController {
 
     lazy var tableView: UITableView = {
@@ -61,6 +68,20 @@ class ViewController: UIViewController {
         // UserDefaults.standard.set(false, forKey: "oh.swift.toggle")
         // UserDefaults.standard.synchronize()
         toggle = false
+
+        let jsonString = """
+                         {
+                            "text1": "hello world!",
+                            "integer": 99,
+                            "decimal": 66
+                         }
+                         """
+        do {
+            let model = try JSONDecoder().decode(Model.self, from: jsonString.data(using: .utf8)!)
+            print(model) // text = "", integer = 99, decimal = 66.0, flag = true
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 
     override func didReceiveMemoryWarning() {

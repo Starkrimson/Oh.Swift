@@ -25,6 +25,8 @@ let cell = tableView.oh.dequeue(UITableViewCell.self)
 ### Property Wrapper
 
 ```swift
+// UserDefaultsWrapper 
+
 import OhSwift
 
 @UserDefaultsWrapper("oh.swift.toggle", defaultValue: true)
@@ -36,6 +38,34 @@ var toggle: Bool!
 // UserDefaults.standard.set(false, forKey: "oh.swift.toggle")
 // UserDefaults.standard.synchronize()
 toggle = false
+```
+
+```swift
+// CodableDefaultWrapper
+
+
+struct Model: Codable {
+    @Default<String> var text: String
+    @Default<Int> var integer: Int
+    @Default<Double> var decimal: Double
+    @Default.True var flag: Bool
+}
+
+// ...
+
+let jsonString = """
+                 {
+                    "text1": "hello world!",
+                    "integer": 99,
+                    "decimal": 66
+                 }
+                 """
+do {
+    let model = try JSONDecoder().decode(Model.self, from: jsonString.data(using: .utf8)!)
+    print(model) // text = "", integer = 99, decimal = 66.0, flag = true
+} catch {
+    print(error.localizedDescription)
+}
 ```
 
 [More...](https://anicon.notion.site/Oh-Swift-Example-8edc323562694825b2e8966cf70778cb)
