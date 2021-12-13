@@ -68,6 +68,16 @@ do {
 }
 ```
 
+### Utils
+```swift
+/// New+Closure  
+lazy var tableView = UITableView.oh.new {
+    $0.delegate = self
+    $0.dataSource = self
+    $0.oh.register(UITableViewCell.self)
+}
+```
+
 [More...](https://anicon.notion.site/Oh-Swift-Example-8edc323562694825b2e8966cf70778cb)
 
 ## Installation
