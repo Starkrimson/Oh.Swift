@@ -18,13 +18,11 @@ struct Model: Codable {
 
 class ViewController: UIViewController {
 
-    lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.oh.register(UITableViewCell.self)
-        return tableView
-    }()
+    lazy var tableView = UITableView.oh.new {
+        $0.delegate = self
+        $0.dataSource = self
+        $0.oh.register(UITableViewCell.self)
+    }
 
     lazy var dataSource: [(sectionTitle: String, items: [String])] = [
         ("Bundle", [
