@@ -1,7 +1,5 @@
 import UIKit
 
-extension UITableView: OhSwiftCompatible { }
-
 public extension OhSwift where Base: UITableView {
 
     func register<T: UITableViewCell>(nib aClass: T.Type) {

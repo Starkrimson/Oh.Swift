@@ -1,7 +1,5 @@
 import UIKit
 
-extension UICollectionView: OhSwiftCompatible { }
-
 public extension OhSwift where Base: UICollectionView {
 
     func register<T: UICollectionViewCell>(nib aClass: T.Type) {
