@@ -80,6 +80,14 @@ class ViewController: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
+
+        NotificationCenter.default.addObserver(self, selector: #selector(aNotificationReceived(_:)),
+                name: .aNotificationName, object: nil)
+    }
+
+    @objc func aNotificationReceived(_ sender: Notification) {
+        let str = sender.oh.getUserInfo(for: .aUserInfoKey) // str: String
+        print(str)
     }
 
     override func didReceiveMemoryWarning() {
@@ -108,5 +116,22 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         let item = dataSource[indexPath.section].items[indexPath.row]
         cell.textLabel?.text = item
         return cell
+    }
+
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        NotificationCenter.oh.post(name: .aNotificationName, typedUserInfo: [
+            .aUserInfoKey: "\(indexPath)"
+        ])
+    }
+}
+
+extension Notification.Name {
+    static let aNotificationName = Notification.Name("aNotificationName")
+}
+
+extension UserInfoKey {
+
+    static var aUserInfoKey: UserInfoKey<String> {
+        .init(key: "aUserInfoKey")
     }
 }
