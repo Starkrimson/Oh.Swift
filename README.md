@@ -84,6 +84,21 @@ lazy var tableView = UITableView.oh.new {
 button.rx.tap
     .subscribe()
     .disposed(by: rx.disposeBag)
+
+/// 简化 items(cellIdentifier:,cellType:)
+/// 可配合 tableView.oh.register(UITableViewCell.self) 使用
+Observable.just(dataSource.map { $0.items }.flatMap { $0 } )
+    .bind(to: tableView.rx.items(cell: UITableViewCell.self)) { (row, element, cell) in
+        cell.textLabel?.text = element
+    }
+    .disposed(by: rx.disposeBag)
+
+/// 在原 modelSelected 基础上返回 IndexPath
+tableView.rx.modelSelectedAtIndexPath(String.self)
+    .subscribe(onNext: { (element, indexPath) in
+        print("\(element) \(indexPath)")
+    })
+    .disposed(by: rx.disposeBag)
 ```
 
 [More...](https://anicon.notion.site/Oh-Swift-Example-8edc323562694825b2e8966cf70778cb)

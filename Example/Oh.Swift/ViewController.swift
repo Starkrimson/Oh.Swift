@@ -8,6 +8,7 @@
 
 import UIKit
 import OhSwift
+import RxSwift
 
 struct Model: Codable {
     @Default<String> var text: String
@@ -19,8 +20,6 @@ struct Model: Codable {
 class ViewController: UIViewController {
 
     lazy var tableView = UITableView.oh.new {
-        $0.delegate = self
-        $0.dataSource = self
         $0.oh.register(UITableViewCell.self)
     }
 
@@ -88,6 +87,20 @@ class ViewController: UIViewController {
                 print(str)
             })
             .disposed(by: rx.disposeBag)
+
+        Observable.just(dataSource.map { $0.items }.flatMap { $0 } )
+            .bind(to: tableView.rx.items(cell: UITableViewCell.self)) { (row, element, cell) in
+                cell.textLabel?.text = element
+            }
+            .disposed(by: rx.disposeBag)
+
+        tableView.rx.modelSelectedAtIndexPath(String.self)
+            .subscribe(onNext: { (element, indexPath) in
+                NotificationCenter.oh.post(name: .aNotificationName, typedUserInfo: [
+                    .aUserInfoKey: "\(indexPath) - \(element)"
+                ])
+            })
+            .disposed(by: rx.disposeBag)
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,34 +108,6 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-}
-
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        dataSource.count
-    }
-
-    public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        dataSource[section].sectionTitle
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        dataSource[section].items.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.oh.dequeue(UITableViewCell.self)
-        let item = dataSource[indexPath.section].items[indexPath.row]
-        cell.textLabel?.text = item
-        return cell
-    }
-
-    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NotificationCenter.oh.post(name: .aNotificationName, typedUserInfo: [
-            .aUserInfoKey: "\(indexPath)"
-        ])
-    }
 }
 
 extension Notification.Name {
