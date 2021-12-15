@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Oh.Swift'
-  s.version          = '0.1.1'
+  s.version          = '0.2'
   s.summary          = 'Swift extension and utils.'
 
 # This description is used to generate tags and improve search results.
@@ -38,6 +38,11 @@ Swift extension and utilities.
     core.source_files = 'Oh.Swift/Classes/Core/**/*'
   end
 
+  s.subspec 'Rx' do |rx|
+    rx.source_files = 'Oh.Swift/Classes/Rx/**/*'
+    rx.dependency 'RxSwift', '~> 6.2.0'
+    rx.dependency 'RxCocoa', '~> 6.2.0'
+  end
 
   # s.resource_bundles = {
   #   'Oh.Swift' => ['Oh.Swift/Assets/*.png']

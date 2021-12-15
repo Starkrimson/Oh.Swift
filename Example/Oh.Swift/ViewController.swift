@@ -81,13 +81,13 @@ class ViewController: UIViewController {
             print(error.localizedDescription)
         }
 
-        NotificationCenter.default.addObserver(self, selector: #selector(aNotificationReceived(_:)),
-                name: .aNotificationName, object: nil)
-    }
-
-    @objc func aNotificationReceived(_ sender: Notification) {
-        let str = sender.oh.getUserInfo(for: .aUserInfoKey) // str: String
-        print(str)
+        NotificationCenter.default.rx
+            .notification(.aNotificationName)
+            .subscribe(onNext: { notification in
+                let str = notification.oh.getUserInfo(for: .aUserInfoKey) // str: String
+                print(str)
+            })
+            .disposed(by: rx.disposeBag)
     }
 
     override func didReceiveMemoryWarning() {

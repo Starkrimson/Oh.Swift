@@ -78,6 +78,14 @@ lazy var tableView = UITableView.oh.new {
 }
 ```
 
+### RxSwift Extension
+```swift
+/// disposeBag
+button.rx.tap
+    .subscribe()
+    .disposed(by: rx.disposeBag)
+```
+
 [More...](https://anicon.notion.site/Oh-Swift-Example-8edc323562694825b2e8966cf70778cb)
 
 ## Installation
@@ -87,6 +95,9 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'Oh.Swift'
+
+# Install RxSwift extension
+pod 'Oh.Swift/Rx'
 ```
 
 ## Author
