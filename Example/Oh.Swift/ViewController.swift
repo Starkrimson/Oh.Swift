@@ -20,7 +20,7 @@ struct Model: Codable {
 class ViewController: UIViewController {
 
     lazy var tableView = UITableView.oh.new {
-        $0.oh.register(UITableViewCell.self)
+        $0.rawValue.oh.register(UITableViewCell.self)
     }
 
     lazy var dataSource: [(sectionTitle: String, items: [String])] = [
@@ -101,6 +101,29 @@ class ViewController: UIViewController {
                 ])
             })
             .disposed(by: rx.disposeBag)
+
+        let testView = UIView.oh.new { make in
+            make.background(color: .white)
+                .border(width: 10)
+                .corner(radius: 20)
+
+            if #available(iOS 11.0, *) {
+                make.corner(radius: 20, corners: [.topLeft, .bottomRight])
+            }
+
+            make.rawValue.frame = .init(x: 50, y: 650, width: 100, height: 100)
+        }
+        view.addSubview(testView)
+
+        UILabel(frame: .init(x: 160, y: 650, width: 100, height: 100))
+            .oh.config
+            .superView(view)
+            .text("Hola!")
+            .textColor(.blue)
+            .font(ofSize: 18)
+            .background(color: .oh.random)
+            .border()
+            .corner(radius: 20)
     }
 
     override func didReceiveMemoryWarning() {

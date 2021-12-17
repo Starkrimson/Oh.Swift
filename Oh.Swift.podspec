@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Oh.Swift'
-  s.version          = '0.2'
+  s.version          = '0.2.1'
   s.summary          = 'Swift extension and utils.'
 
 # This description is used to generate tags and improve search results.
