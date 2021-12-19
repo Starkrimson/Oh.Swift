@@ -40,6 +40,18 @@ public extension PropertyConfig where Base: UIView {
         rawValue.layer.maskedCorners = CACornerMask(rawValue: corners.rawValue)
         return self
     }
+
+    @discardableResult
+    func isHidden(_ hidden: Bool) -> Self {
+        rawValue.isHidden = hidden
+        return self
+    }
+
+    @discardableResult
+    func toggleHidden() -> Self {
+        rawValue.isHidden = !rawValue.isHidden
+        return self
+    }
 }
 
 public extension PropertyConfig where Base: UILabel {
@@ -69,11 +81,56 @@ public extension PropertyConfig where Base: UILabel {
     }
 }
 
+public extension PropertyConfig where Base: UIControl {
+
+    @discardableResult
+    func isEnabled(_ enabled: Bool) -> Self {
+        rawValue.isEnabled = enabled
+        return self
+    }
+
+    @discardableResult
+    func toggleEnable() -> Self {
+        rawValue.isEnabled = !rawValue.isEnabled
+        return self
+    }
+}
+
 public extension PropertyConfig where Base: UIButton {
+
+    @discardableResult
+    func title(_ title: String?, for state: UIButton.State = .normal) -> Self {
+        rawValue.setTitle(title, for: state)
+        return self
+    }
 
     @discardableResult
     func titleColor(_ color: UIColor, for state: UIButton.State = .normal) -> Self {
         rawValue.setTitleColor(color, for: state)
+        return self
+    }
+
+    @discardableResult
+    func font(ofSize size: CGFloat, weight: UIFont.Weight = .regular) -> Self {
+        rawValue.titleLabel?.font = .systemFont(ofSize: size, weight: weight)
+        return self
+    }
+
+    @discardableResult
+    func font(_ font: UIFont) -> Self {
+        rawValue.titleLabel?.font = font
+        return self
+    }
+
+    @discardableResult
+    func image(_ image: UIImage?, for state: UIButton.State = .normal) -> Self {
+        rawValue.setImage(image, for: state)
+        return self
+    }
+
+    @discardableResult
+    func backgroundImage(_ image: UIImage?, for state: UIButton.State = .normal) -> Self {
+        rawValue.setBackgroundImage(image, for: state)
         return self
     }
 }

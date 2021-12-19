@@ -115,7 +115,7 @@ class ViewController: UIViewController {
         }
         view.addSubview(testView)
 
-        UILabel(frame: .init(x: 160, y: 650, width: 100, height: 100))
+        let label = UILabel(frame: .init(x: 160, y: 650, width: 100, height: 100))
             .oh.config
             .superView(view)
             .text("Hola!")
@@ -124,6 +124,20 @@ class ViewController: UIViewController {
             .background(color: .oh.random)
             .border()
             .corner(radius: 20)
+            .isHidden(false)
+
+        let button = UIButton(frame: .init(x: 310, y: 650, width: 100, height: 100))
+            .oh.config
+            .superView(view)
+            .title("Button")
+            .titleColor(.oh.random)
+            .font(ofSize: 20, weight: .semibold)
+
+        button.rawValue.rx.tap
+            .subscribe(onNext: {
+                label.toggleHidden()
+            })
+            .disposed(by: rx.disposeBag)
     }
 
     override func didReceiveMemoryWarning() {
