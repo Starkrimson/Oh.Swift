@@ -15,6 +15,12 @@ public extension PropertyConfig where Base: UIView {
     }
 
     @discardableResult
+    func frame(_ rect: CGRect) -> Self {
+        rawValue.frame = rect
+        return self
+    }
+
+    @discardableResult
     func background(color: UIColor) -> Self {
         rawValue.backgroundColor = color
         return self
@@ -52,6 +58,18 @@ public extension PropertyConfig where Base: UIView {
         rawValue.isHidden = !rawValue.isHidden
         return self
     }
+
+    @discardableResult
+    func isUserInteractionEnabled(_ flag: Bool) -> Self {
+        rawValue.isUserInteractionEnabled = flag
+        return self
+    }
+
+    @discardableResult
+    func toggleUserInteractionEnabled() -> Self {
+        rawValue.isUserInteractionEnabled = !rawValue.isUserInteractionEnabled
+        return self
+    }
 }
 
 public extension PropertyConfig where Base: UILabel {
@@ -59,6 +77,12 @@ public extension PropertyConfig where Base: UILabel {
     @discardableResult
     func text(_ text: String?) -> Self {
         rawValue.text = text
+        return self
+    }
+
+    @discardableResult
+    func attributedText(_ attributedText: NSAttributedString?) -> Self {
+        rawValue.attributedText = attributedText
         return self
     }
 
@@ -79,6 +103,24 @@ public extension PropertyConfig where Base: UILabel {
         rawValue.font = font
         return self
     }
+
+    @discardableResult
+    func textAlignment(_ textAlignment: NSTextAlignment) -> Self {
+        rawValue.textAlignment = textAlignment
+        return self
+    }
+
+    @discardableResult
+    func numberOfLines(_ numberOfLines: Int) -> Self {
+        rawValue.numberOfLines = numberOfLines
+        return self
+    }
+
+    @discardableResult
+    func adjustsFontSizeToFitWidth(_ flag: Bool) -> Self {
+        rawValue.adjustsFontSizeToFitWidth = flag
+        return self
+    }
 }
 
 public extension PropertyConfig where Base: UIControl {
@@ -92,6 +134,12 @@ public extension PropertyConfig where Base: UIControl {
     @discardableResult
     func toggleEnable() -> Self {
         rawValue.isEnabled = !rawValue.isEnabled
+        return self
+    }
+
+    @discardableResult
+    func target(_ target: Any?, action: Selector, for controlEvents: UIControl.Event) -> Self {
+        rawValue.addTarget(target, action: action, for: controlEvents)
         return self
     }
 }

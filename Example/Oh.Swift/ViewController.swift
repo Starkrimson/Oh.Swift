@@ -118,13 +118,16 @@ class ViewController: UIViewController {
         let label = UILabel(frame: .init(x: 160, y: 650, width: 100, height: 100))
             .oh.config
             .superView(view)
-            .text("Hola!")
+            .text("Bonjour，tristesse！")
             .textColor(.blue)
             .font(ofSize: 18)
             .background(color: .oh.random)
             .border()
             .corner(radius: 20)
             .isHidden(false)
+            .textAlignment(.center)
+            .adjustsFontSizeToFitWidth(true)
+            .numberOfLines(3)
 
         let button = UIButton(frame: .init(x: 310, y: 650, width: 100, height: 100))
             .oh.config
