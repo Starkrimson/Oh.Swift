@@ -182,3 +182,78 @@ public extension PropertyConfig where Base: UIButton {
         return self
     }
 }
+
+public extension PropertyConfig where Base: UITextField {
+
+    @discardableResult
+    func text(_ text: String?) -> Self {
+        rawValue.text = text
+        return self
+    }
+
+    @discardableResult
+    func attributedText(_ attributedText: NSAttributedString?) -> Self {
+        rawValue.attributedText = attributedText
+        return self
+    }
+
+    @discardableResult
+    func placeholder(_ text: String) -> Self {
+        rawValue.placeholder = text
+        return self
+    }
+
+    @discardableResult
+    func placeholder(_ attributedText: NSAttributedString) -> Self {
+        rawValue.attributedPlaceholder = attributedText
+        return self
+    }
+
+    @discardableResult
+    func textColor(_ color: UIColor) -> Self {
+        rawValue.textColor = color
+        return self
+    }
+
+    @discardableResult
+    func font(ofSize size: CGFloat, weight: UIFont.Weight = .regular) -> Self {
+        rawValue.font = .systemFont(ofSize: size, weight: weight)
+        return self
+    }
+
+    @discardableResult
+    func font(_ font: UIFont) -> Self {
+        rawValue.font = font
+        return self
+    }
+
+    @discardableResult
+    func borderStyle(_ style: UITextField.BorderStyle) -> Self {
+        rawValue.borderStyle = style
+        return self
+    }
+
+    @discardableResult
+    func clearButtonMode(_ mode: UITextField.ViewMode) -> Self {
+        rawValue.clearButtonMode = mode
+        return self
+    }
+
+    @discardableResult
+    func keyboardType(_ type: UIKeyboardType) -> Self {
+        rawValue.keyboardType = type
+        return self
+    }
+
+    @discardableResult
+    func textAlignment(_ textAlignment: NSTextAlignment) -> Self {
+        rawValue.textAlignment = textAlignment
+        return self
+    }
+
+    @discardableResult
+    func adjustsFontSizeToFitWidth(_ flag: Bool) -> Self {
+        rawValue.adjustsFontSizeToFitWidth = flag
+        return self
+    }
+}
