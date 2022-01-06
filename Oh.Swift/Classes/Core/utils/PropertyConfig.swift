@@ -70,6 +70,12 @@ public extension PropertyConfig where Base: UIView {
         rawValue.isUserInteractionEnabled = !rawValue.isUserInteractionEnabled
         return self
     }
+
+    @discardableResult
+    func clipsToBounds(_ flag: Bool) -> Self {
+        rawValue.clipsToBounds = flag
+        return self
+    }
 }
 
 public extension PropertyConfig where Base: UILabel {
@@ -254,6 +260,27 @@ public extension PropertyConfig where Base: UITextField {
     @discardableResult
     func adjustsFontSizeToFitWidth(_ flag: Bool) -> Self {
         rawValue.adjustsFontSizeToFitWidth = flag
+        return self
+    }
+
+    @discardableResult
+    func isSecureTextEntry(_ flag: Bool) -> Self {
+        rawValue.isSecureTextEntry = flag
+        return self
+    }
+}
+
+public extension PropertyConfig where Base: UIImageView {
+
+    @discardableResult
+    func image(_ image: UIImage?) -> Self {
+        rawValue.image = image
+        return self
+    }
+
+    @discardableResult
+    func highlightedImage(_ image: UIImage?) -> Self {
+        rawValue.highlightedImage = image
         return self
     }
 }
