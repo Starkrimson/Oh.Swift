@@ -284,3 +284,18 @@ public extension PropertyConfig where Base: UIImageView {
         return self
     }
 }
+
+public extension PropertyConfig where Base: UITableView {
+
+    @discardableResult
+    func register<T: UITableViewCell>(nib aClass: T.Type) -> Self {
+        rawValue.oh.register(nib: aClass)
+        return self
+    }
+
+    @discardableResult
+    func register<T: UITableViewCell>(_ aClass: T.Type) -> Self {
+        rawValue.oh.register(aClass)
+        return self
+    }
+}
