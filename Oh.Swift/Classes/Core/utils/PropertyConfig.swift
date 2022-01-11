@@ -298,4 +298,18 @@ public extension PropertyConfig where Base: UITableView {
         rawValue.oh.register(aClass)
         return self
     }
+
+    @discardableResult
+    func separator(style: UITableViewCell.SeparatorStyle = .singleLine,
+                   color: UIColor? = nil,
+                   inset: UIEdgeInsets? = nil) -> Self {
+        rawValue.separatorStyle = style
+        if let inset = inset {
+            rawValue.separatorInset = inset
+        }
+        if let color = color {
+            rawValue.separatorColor = color
+        }
+        return self
+    }
 }
