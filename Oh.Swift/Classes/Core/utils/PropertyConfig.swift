@@ -283,6 +283,12 @@ public extension PropertyConfig where Base: UIImageView {
         rawValue.highlightedImage = image
         return self
     }
+
+    @discardableResult
+    func contentMode(_ mode: UIView.ContentMode) -> Self {
+        rawValue.contentMode = mode
+        return self
+    }
 }
 
 public extension PropertyConfig where Base: UITableView {
