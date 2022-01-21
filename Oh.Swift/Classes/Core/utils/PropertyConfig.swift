@@ -76,6 +76,12 @@ public extension PropertyConfig where Base: UIView {
         rawValue.clipsToBounds = flag
         return self
     }
+
+    @discardableResult
+    func tag(_ tag: Int) -> Self {
+        rawValue.tag = tag
+        return self
+    }
 }
 
 public extension PropertyConfig where Base: UILabel {
