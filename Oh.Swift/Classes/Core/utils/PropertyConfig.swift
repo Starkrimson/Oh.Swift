@@ -276,6 +276,57 @@ public extension PropertyConfig where Base: UITextField {
     }
 }
 
+public extension PropertyConfig where Base: UITextView {
+
+    @discardableResult
+    func text(_ text: String?) -> Self {
+        rawValue.text = text
+        return self
+    }
+
+    @discardableResult
+    func attributedText(_ attributedText: NSAttributedString?) -> Self {
+        rawValue.attributedText = attributedText
+        return self
+    }
+
+    @discardableResult
+    func textColor(_ color: UIColor) -> Self {
+        rawValue.textColor = color
+        return self
+    }
+
+    @discardableResult
+    func font(ofSize size: CGFloat, weight: UIFont.Weight = .regular) -> Self {
+        rawValue.font = .systemFont(ofSize: size, weight: weight)
+        return self
+    }
+
+    @discardableResult
+    func font(_ font: UIFont) -> Self {
+        rawValue.font = font
+        return self
+    }
+
+    @discardableResult
+    func keyboardType(_ type: UIKeyboardType) -> Self {
+        rawValue.keyboardType = type
+        return self
+    }
+
+    @discardableResult
+    func textAlignment(_ textAlignment: NSTextAlignment) -> Self {
+        rawValue.textAlignment = textAlignment
+        return self
+    }
+
+    @discardableResult
+    func isSecureTextEntry(_ flag: Bool) -> Self {
+        rawValue.isSecureTextEntry = flag
+        return self
+    }
+}
+
 public extension PropertyConfig where Base: UIImageView {
 
     @discardableResult
@@ -322,6 +373,15 @@ public extension PropertyConfig where Base: UITableView {
         if let color = color {
             rawValue.separatorColor = color
         }
+        return self
+    }
+}
+
+public extension PropertyConfig where Base: UISwitch {
+
+    @discardableResult
+    func onTintColor(_ color: UIColor?) -> Self {
+        rawValue.onTintColor = color
         return self
     }
 }
