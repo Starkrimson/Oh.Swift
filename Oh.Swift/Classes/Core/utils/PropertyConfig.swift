@@ -171,6 +171,12 @@ public extension PropertyConfig where Base: UIButton {
     }
 
     @discardableResult
+    func attributedTitle(_ title: NSAttributedString?, for state: UIButton.State = .normal) -> Self {
+        rawValue.setAttributedTitle(title, for: state)
+        return self
+    }
+
+    @discardableResult
     func font(ofSize size: CGFloat, weight: UIFont.Weight = .regular) -> Self {
         rawValue.titleLabel?.font = .systemFont(ofSize: size, weight: weight)
         return self
