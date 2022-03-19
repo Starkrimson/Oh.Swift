@@ -1,11 +1,3 @@
-//
-//  UserDefaultsWrapper.swift
-//  AAT
-//
-//  Created by Allie on 2021/7/26.
-//  Copyright © 2021 YiXue. All rights reserved.
-//
-
 import Foundation
 
 @propertyWrapper
