@@ -15,12 +15,17 @@ public extension OhSwift where Base: UIView {
     ///           }
     ///           make.view.frame = .init(x: 50, y: 650, width: 100, height: 100)
     ///       }
-    static func new(_ closure: (PropertyConfig<Base>) throws -> Void) rethrows -> Base {
+    static func new(_ closure: (Modifier<Base>) throws -> Void) rethrows -> Base {
         let base = Base.init()
-        try closure(PropertyConfig(base))
+        try closure(Modifier(base))
         return base
     }
 
+    var modifier: Modifier<Base> {
+        Modifier(base)
+    }
+
+    @available(*, deprecated, renamed: "modifier")
     var config: PropertyConfig<Base> {
         PropertyConfig(base)
     }

@@ -1,12 +1,14 @@
+@available(*, deprecated, renamed: "Modifier", message: "PropertyConfig has been renamed Modifier.")
+public typealias PropertyConfig = Modifier
 
-public struct PropertyConfig<Base> {
+public struct Modifier<Base> {
     public let rawValue: Base
     public init(_ rawValue: Base) {
         self.rawValue = rawValue
     }
 }
 
-public extension PropertyConfig where Base: UIView {
+public extension Modifier where Base: UIView {
 
     @discardableResult
     func superView(_ view: UIView) -> Self {
@@ -84,7 +86,7 @@ public extension PropertyConfig where Base: UIView {
     }
 }
 
-public extension PropertyConfig where Base: UILabel {
+public extension Modifier where Base: UILabel {
 
     @discardableResult
     func text(_ text: String?) -> Self {
@@ -135,7 +137,7 @@ public extension PropertyConfig where Base: UILabel {
     }
 }
 
-public extension PropertyConfig where Base: UIControl {
+public extension Modifier where Base: UIControl {
 
     @discardableResult
     func isEnabled(_ enabled: Bool) -> Self {
@@ -156,7 +158,7 @@ public extension PropertyConfig where Base: UIControl {
     }
 }
 
-public extension PropertyConfig where Base: UIButton {
+public extension Modifier where Base: UIButton {
 
     @discardableResult
     func title(_ title: String?, for state: UIButton.State = .normal) -> Self {
@@ -201,7 +203,7 @@ public extension PropertyConfig where Base: UIButton {
     }
 }
 
-public extension PropertyConfig where Base: UITextField {
+public extension Modifier where Base: UITextField {
 
     @discardableResult
     func text(_ text: String?) -> Self {
@@ -282,7 +284,7 @@ public extension PropertyConfig where Base: UITextField {
     }
 }
 
-public extension PropertyConfig where Base: UITextView {
+public extension Modifier where Base: UITextView {
 
     @discardableResult
     func text(_ text: String?) -> Self {
@@ -333,7 +335,7 @@ public extension PropertyConfig where Base: UITextView {
     }
 }
 
-public extension PropertyConfig where Base: UIImageView {
+public extension Modifier where Base: UIImageView {
 
     @discardableResult
     func image(_ image: UIImage?) -> Self {
@@ -354,7 +356,7 @@ public extension PropertyConfig where Base: UIImageView {
     }
 }
 
-public extension PropertyConfig where Base: UITableView {
+public extension Modifier where Base: UITableView {
 
     @discardableResult
     func register<T: UITableViewCell>(nib aClass: T.Type) -> Self {
@@ -383,7 +385,7 @@ public extension PropertyConfig where Base: UITableView {
     }
 }
 
-public extension PropertyConfig where Base: UISwitch {
+public extension Modifier where Base: UISwitch {
 
     @discardableResult
     func onTintColor(_ color: UIColor?) -> Self {

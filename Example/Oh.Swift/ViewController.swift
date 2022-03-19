@@ -116,7 +116,7 @@ class ViewController: UIViewController {
         view.addSubview(testView)
 
         let label = UILabel(frame: .init(x: 160, y: 650, width: 100, height: 100))
-            .oh.config
+            .oh.modifier
             .superView(view)
             .text("Bonjour，tristesse！")
             .textColor(.blue)
@@ -130,7 +130,7 @@ class ViewController: UIViewController {
             .numberOfLines(3)
 
         let button = UIButton(frame: .init(x: 310, y: 650, width: 100, height: 100))
-            .oh.config
+            .oh.modifier
             .superView(view)
             .title("Button")
             .titleColor(.oh.random)

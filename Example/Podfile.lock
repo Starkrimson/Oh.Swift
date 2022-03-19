@@ -1,8 +1,8 @@
 PODS:
-  - Oh.Swift (0.2.1):
-    - Oh.Swift/Core (= 0.2.1)
-  - Oh.Swift/Core (0.2.1)
-  - Oh.Swift/Rx (0.2.1):
+  - Oh.Swift (0.2.2):
+    - Oh.Swift/Core (= 0.2.2)
+  - Oh.Swift/Core (0.2.2)
+  - Oh.Swift/Rx (0.2.2):
     - RxCocoa (~> 6.2.0)
     - RxSwift (~> 6.2.0)
   - RxCocoa (6.2.0):
@@ -27,7 +27,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Oh.Swift: 08a91128828a7902e150a88acb1b993a27a35598
+  Oh.Swift: 6aead8b4b8d72f720c2e42a9ca4eebfd9a1ea331
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
