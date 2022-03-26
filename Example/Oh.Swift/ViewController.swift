@@ -49,7 +49,7 @@ class ViewController: UIViewController {
     var toggle: Bool!
 
     @FileStorage(directory: .documentDirectory, fileName: "file.txt")
-    var file: String = ""
+    var file: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
