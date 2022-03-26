@@ -29,6 +29,13 @@ extension KeyedDecodingContainer {
     }
 }
 
+extension KeyedEncodingContainer {
+    
+    public mutating func encode<T>(_ value: Default<T>, forKey key: Self.Key) throws where T : DefaultValue {
+        try encodeIfPresent(value.wrappedValue, forKey: key)
+    }
+}
+
 extension Bool: DefaultValue {
     public static var defaultValue = false
 

@@ -48,7 +48,7 @@ class ViewController: UIViewController {
     @UserDefaultsWrapper("oh.swift.toggle", defaultValue: true)
     var toggle: Bool!
 
-    @FileStorage(directory: .documentDirectory, fileName: "file.txt")
+    @FileStorage(directory: .documentDirectory, fileName: "file.json")
     var file: String?
 
     override func viewDidLoad() {
@@ -79,6 +79,13 @@ class ViewController: UIViewController {
         do {
             let model = try JSONDecoder().decode(Model.self, from: jsonString.data(using: .utf8)!)
             print(model) // text = "", integer = 99, decimal = 66.0, flag = true
+            
+            let encoder = JSONEncoder()
+            encoder.outputFormatting = .prettyPrinted
+            let data = try encoder.encode(model)
+            let string = String(data: data, encoding: .utf8)
+            file = string
+            
         } catch {
             print(error.localizedDescription)
         }
