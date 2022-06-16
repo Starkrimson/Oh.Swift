@@ -84,6 +84,18 @@ public extension Modifier where Base: UIView {
         rawValue.tag = tag
         return self
     }
+    
+    @discardableResult
+    func tapAction(handler: @escaping () -> ()) -> Self {
+        let tap = UITapGestureRecognizer()
+        tap.addTarget(
+            ControlEventHandler(rawValue, handler: handler),
+            action: #selector(ControlEventHandler.eventHandler)
+        )
+        rawValue.addGestureRecognizer(tap)
+        rawValue.isUserInteractionEnabled = true
+        return self
+    }
 }
 
 public extension Modifier where Base: UILabel {
@@ -137,6 +149,20 @@ public extension Modifier where Base: UILabel {
     }
 }
 
+
+class ControlEventHandler {
+    let handler: () -> ()
+    
+    init(_ target: Any, handler: @escaping () -> ()) {
+        self.handler = handler
+        objc_setAssociatedObject(target, "ControlEventHandler[\(arc4random())]", self, .OBJC_ASSOCIATION_RETAIN)
+    }
+    
+    @objc func eventHandler() {
+        handler()
+    }
+}
+
 public extension Modifier where Base: UIControl {
 
     @discardableResult
@@ -154,6 +180,31 @@ public extension Modifier where Base: UIControl {
     @discardableResult
     func target(_ target: Any?, action: Selector, for controlEvents: UIControl.Event) -> Self {
         rawValue.addTarget(target, action: action, for: controlEvents)
+        return self
+    }
+    
+    @discardableResult
+    @available(iOS 14.0, *)
+    func action(for controlEvents: UIControl.Event = .touchUpInside, handler: @escaping UIActionHandler) -> Self {
+        let action = UIAction(title: "", handler: handler)
+        rawValue.addAction(action, for: controlEvents)
+        return self
+    }
+    
+    @discardableResult
+    @available(iOS 14.0, *)
+    func action(_ action: UIAction, for controlEvents: UIControl.Event = .touchUpInside) -> Self {
+        rawValue.addAction(action, for: controlEvents)
+        return self
+    }
+    
+    @discardableResult
+    func action(for controlEvents: UIControl.Event = .touchUpInside, handler: @escaping () -> ()) -> Self {
+        rawValue.addTarget(
+            ControlEventHandler(rawValue, handler: handler),
+            action: #selector(ControlEventHandler.eventHandler),
+            for: controlEvents
+        )
         return self
     }
 }
