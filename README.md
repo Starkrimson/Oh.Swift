@@ -68,14 +68,27 @@ do {
 }
 ```
 
-### Utils
+### Modifier
 ```swift
-/// New+Closure  
-lazy var tableView = UITableView.oh.new {
-    $0.delegate = self
-    $0.dataSource = self
-    $0.oh.register(UITableViewCell.self)
+let testView = UIView.oh.new { make in
+    make.background(color: .white)
+        .border(width: 10)
+        .corner(radius: 20)
+    if #available(iOS 11.0, *) {
+        make.corner(radius: 20, corners: [.topLeft, .bottomRight])
+    }
+    make.rawValue.frame = .init(x: 50, y: 650, width: 100, height: 100)
 }
+
+UIButton(frame: .init(x: 310, y: 650, width: 100, height: 100))
+    .oh.modifier
+    .superView(view)
+    .title("Button")
+    .titleColor(.oh.random)
+    .font(ofSize: 20, weight: .semibold)
+    .action(for: .touchDown) {
+        print("...")
+    }
 ```
 
 ### RxSwift Extension
