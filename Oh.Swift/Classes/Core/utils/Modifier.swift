@@ -129,6 +129,18 @@ public extension Modifier where Base: UILabel {
         rawValue.font = font
         return self
     }
+    
+    @discardableResult
+    func preferredFont(
+        _ style: UIFont.TextStyle,
+        compatibleWith traitCollection: UITraitCollection? = nil) -> Self {
+        if #available(iOS 10.0, *) {
+            rawValue.font = .preferredFont(forTextStyle: style, compatibleWith: traitCollection)
+        } else {
+            rawValue.font = .preferredFont(forTextStyle: style)
+        }
+        return self
+    }
 
     @discardableResult
     func textAlignment(_ textAlignment: NSTextAlignment) -> Self {
