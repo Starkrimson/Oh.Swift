@@ -170,3 +170,17 @@ extension UserInfoKey {
         .init(key: "aUserInfoKey")
     }
 }
+
+
+import SwiftUI
+@available(iOS 13.0.0, *)
+struct UIKit_Previews: PreviewProvider {
+   
+    static var previews: some View {
+       VStack {
+           UIViewControllerPreview {
+               ViewController()
+           }
+       }
+   }
+}

@@ -5,10 +5,4 @@ platform :ios, '11.0'
 target 'Oh.Swift_Example' do
   pod 'Oh.Swift', :path => '../'
   pod 'Oh.Swift/Rx', :path => '../'
-
-  target 'Oh.Swift_Tests' do
-    inherit! :search_paths
-
-    
-  end
 end
