@@ -27,6 +27,12 @@ public extension Modifier where Base: UIView {
         rawValue.backgroundColor = color
         return self
     }
+    
+    @discardableResult
+    func tint(color: UIColor) -> Self {
+        rawValue.tintColor = color
+        return self
+    }
 
     @discardableResult
     func border(color: UIColor = .black, width: CGFloat = 1) -> Self {
